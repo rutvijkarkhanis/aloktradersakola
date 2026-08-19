@@ -44,6 +44,16 @@ export function computeTotals(
 ): OrderTotals {
   const subtotal = lines.reduce((s, l) => s + l.line_total, 0);
   const discount = couponDiscount(coupon, subtotal);
+  return computeTotalsWithDiscount(subtotal, discount, settings, paymentType);
+}
+
+/** Same money math but from an already-resolved subtotal + discount (UI display). */
+export function computeTotalsWithDiscount(
+  subtotal: number,
+  discount: number,
+  settings: SiteSettings,
+  paymentType: PaymentType,
+): OrderTotals {
   const taxable = Math.max(subtotal - discount, 0);
 
   let delivery_charge = Number(settings.delivery_flat_fee) || 0;
