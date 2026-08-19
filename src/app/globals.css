@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+      "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+    --background: 40 30% 99%;
+    --foreground: 20 14% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 20 14% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 20 14% 12%;
+
+    /* Primary = dark ink (strong, commercial CTAs) */
+    --primary: 20 14% 14%;
+    --primary-foreground: 40 30% 99%;
+
+    --secondary: 40 20% 96%;
+    --secondary-foreground: 20 14% 14%;
+
+    --muted: 40 16% 95%;
+    --muted-foreground: 25 8% 42%;
+
+    /* Accent = warm amber/gold (premium, Indian-market appropriate) */
+    --accent: 32 60% 96%;
+    --accent-foreground: 28 70% 28%;
+
+    --brand: 30 84% 46%;
+    --brand-foreground: 40 40% 99%;
+
+    --destructive: 0 72% 45%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 142 60% 34%;
+    --warning: 38 92% 45%;
+
+    --border: 30 12% 90%;
+    --input: 30 12% 88%;
+    --ring: 30 84% 46%;
+
+    --radius: 0.6rem;
+  }
+
+  .dark {
+    --background: 20 14% 8%;
+    --foreground: 40 30% 96%;
+    --card: 20 14% 11%;
+    --card-foreground: 40 30% 96%;
+    --popover: 20 14% 11%;
+    --popover-foreground: 40 30% 96%;
+    --primary: 40 30% 96%;
+    --primary-foreground: 20 14% 12%;
+    --secondary: 20 10% 16%;
+    --secondary-foreground: 40 30% 96%;
+    --muted: 20 10% 16%;
+    --muted-foreground: 30 8% 62%;
+    --accent: 28 40% 18%;
+    --accent-foreground: 32 80% 70%;
+    --brand: 30 84% 52%;
+    --brand-foreground: 20 14% 10%;
+    --destructive: 0 62% 45%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 20 10% 20%;
+    --input: 20 10% 22%;
+    --ring: 30 84% 52%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer utilities {
+  .container-wide {
+    @apply mx-auto w-full max-w-[1400px] px-4 sm:px-6 lg:px-8;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}

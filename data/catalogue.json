@@ -1,0 +1,1998 @@
+{
+  "meta": {
+    "source": "Fabrication.pdf (49 pages) via Fabrication_Product_Import.zip",
+    "generated_by": "scripts/normalize_catalogue.py",
+    "product_count": 37,
+    "category_count": 14,
+    "priced": 36,
+    "quote_only": 1,
+    "currency": "INR",
+    "warnings": [
+      "Flexi Frame: specification flagged for admin review -> \"Size text in PDF appears as: 323-M-3ch 35,30 270m (unclear)\"",
+      "Italian Backdrop: specification flagged for admin review -> \"6x3, 7x4, 6x3 (as printed in PDF)\"",
+      "Jali Single Layer Stand: no price in source -> imported as QUOTE_ONLY (Price on Request)"
+    ]
+  },
+  "categories": [
+    {
+      "slug": "fabrication",
+      "name": "Fabrication",
+      "parent_slug": null,
+      "sort_order": 0,
+      "is_event_category": false
+    },
+    {
+      "slug": "tables",
+      "name": "Tables",
+      "parent_slug": null,
+      "sort_order": 1,
+      "is_event_category": false
+    },
+    {
+      "slug": "stands",
+      "name": "Stands",
+      "parent_slug": null,
+      "sort_order": 2,
+      "is_event_category": false
+    },
+    {
+      "slug": "jali",
+      "name": "Jali",
+      "parent_slug": null,
+      "sort_order": 3,
+      "is_event_category": false
+    },
+    {
+      "slug": "rings",
+      "name": "Rings",
+      "parent_slug": "fabrication",
+      "sort_order": 4,
+      "is_event_category": false
+    },
+    {
+      "slug": "backdrop-stands",
+      "name": "Backdrop Stands",
+      "parent_slug": "fabrication",
+      "sort_order": 5,
+      "is_event_category": false
+    },
+    {
+      "slug": "frames",
+      "name": "Frames",
+      "parent_slug": "fabrication",
+      "sort_order": 6,
+      "is_event_category": false
+    },
+    {
+      "slug": "canopies",
+      "name": "Canopies",
+      "parent_slug": "fabrication",
+      "sort_order": 7,
+      "is_event_category": false
+    },
+    {
+      "slug": "event-setups",
+      "name": "Event Setups",
+      "parent_slug": "fabrication",
+      "sort_order": 8,
+      "is_event_category": false
+    },
+    {
+      "slug": "backdrops",
+      "name": "Backdrops",
+      "parent_slug": "fabrication",
+      "sort_order": 9,
+      "is_event_category": false
+    },
+    {
+      "slug": "arches",
+      "name": "Arches",
+      "parent_slug": "fabrication",
+      "sort_order": 10,
+      "is_event_category": false
+    },
+    {
+      "slug": "cake-tables",
+      "name": "Cake Tables",
+      "parent_slug": "tables",
+      "sort_order": 11,
+      "is_event_category": false
+    },
+    {
+      "slug": "stands",
+      "name": "Stands",
+      "parent_slug": null,
+      "sort_order": 12,
+      "is_event_category": false
+    },
+    {
+      "slug": "jali-stands",
+      "name": "Jali Stands",
+      "parent_slug": "jali",
+      "sort_order": 13,
+      "is_event_category": false
+    }
+  ],
+  "products": [
+    {
+      "name": "Balloon Ring",
+      "slug": "balloon-ring",
+      "sku": "ALK-RNG-001",
+      "category_slug": "rings",
+      "category_group": "Fabrication",
+      "price": 2000,
+      "sale_price": null,
+      "currency": "INR",
+      "short_description": "Rings · 6x6",
+      "description": "Balloon Ring — rings for event, wedding, birthday and party decoration. Size / specification as per catalogue: 6x6. Fabricated to order. Custom sizes and finishes available on request.",
+      "dimensions": "6x6",
+      "material": null,
+      "colour": null,
+      "finish": null,
+      "weight": null,
+      "product_type": "READY_MADE",
+      "is_customizable": false,
+      "is_quote_only": false,
+      "is_featured": true,
+      "is_active": true,
+      "needs_review": false,
+      "stock_quantity": 25,
+      "low_stock_threshold": 5,
+      "source_pdf": "Fabrication.pdf",
+      "source_pages": [
+        1,
+        2
+      ],
+      "images": [
+        {
+          "file": "page-01.png",
+          "page": 1,
+          "is_primary": true,
+          "alt": "Balloon Ring — fabrication product, catalogue page 1",
+          "sort_order": 0
+        },
+        {
+          "file": "page-02.png",
+          "page": 2,
+          "is_primary": false,
+          "alt": "Balloon Ring — fabrication product, catalogue page 2",
+          "sort_order": 1
+        }
+      ],
+      "attributes": [
+        {
+          "name": "Specification (as per catalogue)",
+          "value": "6x6"
+        },
+        {
+          "name": "Source PDF",
+          "value": "Fabrication.pdf (page 1, 2)"
+        }
+      ]
+    },
+    {
+      "name": "Backdrop Stand",
+      "slug": "backdrop-stand",
+      "sku": "ALK-BDS-001",
+      "category_slug": "backdrop-stands",
+      "category_group": "Fabrication",
+      "price": 2500,
+      "sale_price": null,
+      "currency": "INR",
+      "short_description": "Backdrop Stands · 5x10 adjustable",
+      "description": "Backdrop Stand — backdrop stands for event, wedding, birthday and party decoration. Size / specification as per catalogue: 5x10 adjustable. Fabricated to order. Custom sizes and finishes available on request.",
+      "dimensions": "5x10 adjustable",
+      "material": null,
+      "colour": null,
+      "finish": null,
+      "weight": null,
+      "product_type": "READY_MADE_AND_CUSTOM",
+      "is_customizable": true,
+      "is_quote_only": false,
+      "is_featured": false,
+      "is_active": true,
+      "needs_review": false,
+      "stock_quantity": 25,
+      "low_stock_threshold": 5,
+      "source_pdf": "Fabrication.pdf",
+      "source_pages": [
+        3,
+        4
+      ],
+      "images": [
+        {
+          "file": "page-03.png",
+          "page": 3,
+          "is_primary": true,
+          "alt": "Backdrop Stand — fabrication product, catalogue page 3",
+          "sort_order": 0
+        },
+        {
+          "file": "page-04.png",
+          "page": 4,
+          "is_primary": false,
+          "alt": "Backdrop Stand — fabrication product, catalogue page 4",
+          "sort_order": 1
+        }
+      ],
+      "attributes": [
+        {
+          "name": "Specification (as per catalogue)",
+          "value": "5x10 adjustable"
+        },
+        {
+          "name": "Source PDF",
+          "value": "Fabrication.pdf (page 3, 4)"
+        }
+      ]
+    },
+    {
+      "name": "Bottom Pipe Single Layer",
+      "slug": "bottom-pipe-single-layer",
+      "sku": "ALK-FRM-001",
+      "category_slug": "frames",
+      "category_group": "Fabrication",
+      "price": 3000,
+      "sale_price": null,
+      "currency": "INR",
+      "short_description": "Frames · 5–10 ft adjustable height; 5–10 ft adjustable width",
+      "description": "Bottom Pipe Single Layer — frames for event, wedding, birthday and party decoration. Size / specification as per catalogue: 5–10 ft adjustable height; 5–10 ft adjustable width. Fabricated to order. Custom sizes and finishes available on request.",
+      "dimensions": "5–10 ft adjustable height; 5–10 ft adjustable width",
+      "material": null,
+      "colour": null,
+      "finish": null,
+      "weight": null,
+      "product_type": "READY_MADE_AND_CUSTOM",
+      "is_customizable": true,
+      "is_quote_only": false,
+      "is_featured": false,
+      "is_active": true,
+      "needs_review": false,
+      "stock_quantity": 25,
+      "low_stock_threshold": 5,
+      "source_pdf": "Fabrication.pdf",
+      "source_pages": [
+        5
+      ],
+      "images": [
+        {
+          "file": "page-05.png",
+          "page": 5,
+          "is_primary": true,
+          "alt": "Bottom Pipe Single Layer — fabrication product, catalogue page 5",
+          "sort_order": 0
+        }
+      ],
+      "attributes": [
+        {
+          "name": "Specification (as per catalogue)",
+          "value": "5–10 ft adjustable height; 5–10 ft adjustable width"
+        },
+        {
+          "name": "Source PDF",
+          "value": "Fabrication.pdf (page 5)"
+        }
+      ]
+    },
+    {
+      "name": "Middle Pipe Single Layer",
+      "slug": "middle-pipe-single-layer",
+      "sku": "ALK-FRM-002",
+      "category_slug": "frames",
+      "category_group": "Fabrication",
+      "price": 3000,
+      "sale_price": null,
+      "currency": "INR",
+      "short_description": "Frames · 5–10 ft adjustable height; 5–10 ft adjustable width; middle section 4 ft",
+      "description": "Middle Pipe Single Layer — frames for event, wedding, birthday and party decoration. Size / specification as per catalogue: 5–10 ft adjustable height; 5–10 ft adjustable width; middle section 4 ft. Fabricated to order. Custom sizes and finishes available on request.",
+      "dimensions": "5–10 ft adjustable height; 5–10 ft adjustable width; middle section 4 ft",
+      "material": null,
+      "colour": null,
+      "finish": null,
+      "weight": null,
+      "product_type": "READY_MADE_AND_CUSTOM",
+      "is_customizable": true,
+      "is_quote_only": false,
+      "is_featured": false,
+      "is_active": true,
+      "needs_review": false,
+      "stock_quantity": 25,
+      "low_stock_threshold": 5,
+      "source_pdf": "Fabrication.pdf",
+      "source_pages": [
+        6
+      ],
+      "images": [
+        {
+          "file": "page-06.png",
+          "page": 6,
+          "is_primary": true,
+          "alt": "Middle Pipe Single Layer — fabrication product, catalogue page 6",
+          "sort_order": 0
+        }
+      ],
+      "attributes": [
+        {
+          "name": "Specification (as per catalogue)",
+          "value": "5–10 ft adjustable height; 5–10 ft adjustable width; middle section 4 ft"
+        },
+        {
+          "name": "Source PDF",
+          "value": "Fabrication.pdf (page 6)"
+        }
+      ]
+    },
+    {
+      "name": "U Shape and Square Combo",
+      "slug": "u-shape-and-square-combo",
+      "sku": "ALK-FRM-003",
+      "category_slug": "frames",
+      "category_group": "Fabrication",
+      "price": 5500,
+      "sale_price": null,
+      "currency": "INR",
+      "short_description": "Frames · Side sections 6 ft high x 3 ft wide; center 7 ft high x 4 ft wide",
+      "description": "U Shape and Square Combo — frames for event, wedding, birthday and party decoration. Size / specification as per catalogue: Side sections 6 ft high x 3 ft wide; center 7 ft high x 4 ft wide. Fabricated to order. Custom sizes and finishes available on request.",
+      "dimensions": "Side sections 6 ft high x 3 ft wide; center 7 ft high x 4 ft wide",
+      "material": null,
+      "colour": null,
+      "finish": null,
+      "weight": null,
+      "product_type": "READY_MADE",
+      "is_customizable": false,
+      "is_quote_only": false,
+      "is_featured": false,
+      "is_active": true,
+      "needs_review": false,
+      "stock_quantity": 25,
+      "low_stock_threshold": 5,
+      "source_pdf": "Fabrication.pdf",
+      "source_pages": [
+        7
+      ],
+      "images": [
+        {
+          "file": "page-07.png",
+          "page": 7,
+          "is_primary": true,
+          "alt": "U Shape and Square Combo — fabrication product, catalogue page 7",
+          "sort_order": 0
+        }
+      ],
+      "attributes": [
+        {
+          "name": "Specification (as per catalogue)",
+          "value": "Side sections 6 ft high x 3 ft wide; center 7 ft high x 4 ft wide"
+        },
+        {
+          "name": "Source PDF",
+          "value": "Fabrication.pdf (page 7)"
+        }
+      ]
+    },
+    {
+      "name": "Arch Ring",
+      "slug": "arch-ring",
+      "sku": "ALK-RNG-002",
+      "category_slug": "rings",
+      "category_group": "Fabrication",
+      "price": 2500,
+      "sale_price": null,
+      "currency": "INR",
+      "short_description": "Rings · 6x6",
+      "description": "Arch Ring — rings for event, wedding, birthday and party decoration. Size / specification as per catalogue: 6x6. Fabricated to order. Custom sizes and finishes available on request.",
+      "dimensions": "6x6",
+      "material": null,
+      "colour": null,
+      "finish": null,
+      "weight": null,
+      "product_type": "READY_MADE",
+      "is_customizable": false,
+      "is_quote_only": false,
+      "is_featured": false,
+      "is_active": true,
+      "needs_review": false,
+      "stock_quantity": 25,
+      "low_stock_threshold": 5,
+      "source_pdf": "Fabrication.pdf",
+      "source_pages": [
+        8,
+        9
+      ],
+      "images": [
+        {
+          "file": "page-08.png",
+          "page": 8,
+          "is_primary": true,
+          "alt": "Arch Ring — fabrication product, catalogue page 8",
+          "sort_order": 0
+        },
+        {
+          "file": "page-09.png",
+          "page": 9,
+          "is_primary": false,
+          "alt": "Arch Ring — fabrication product, catalogue page 9",
+          "sort_order": 1
+        }
+      ],
+      "attributes": [
+        {
+          "name": "Specification (as per catalogue)",
+          "value": "6x6"
+        },
+        {
+          "name": "Source PDF",
+          "value": "Fabrication.pdf (page 8, 9)"
+        }
+      ]
+    },
+    {
+      "name": "Light Ring",
+      "slug": "light-ring",
+      "sku": "ALK-RNG-003",
+      "category_slug": "rings",
+      "category_group": "Fabrication",
+      "price": 5500,
+      "sale_price": null,
+      "currency": "INR",
+      "short_description": "Rings · 7x7 ft",
+      "description": "Light Ring — rings for event, wedding, birthday and party decoration. Size / specification as per catalogue: 7x7 ft. Fabricated to order. Custom sizes and finishes available on request.",
+      "dimensions": "7x7 ft",
+      "material": null,
+      "colour": null,
+      "finish": null,
+      "weight": null,
+      "product_type": "READY_MADE",
+      "is_customizable": false,
+      "is_quote_only": false,
+      "is_featured": true,
+      "is_active": true,
+      "needs_review": false,
+      "stock_quantity": 25,
+      "low_stock_threshold": 5,
+      "source_pdf": "Fabrication.pdf",
+      "source_pages": [
+        10
+      ],
+      "images": [
+        {
+          "file": "page-10.png",
+          "page": 10,
+          "is_primary": true,
+          "alt": "Light Ring — fabrication product, catalogue page 10",
+          "sort_order": 0
+        }
+      ],
+      "attributes": [
+        {
+          "name": "Specification (as per catalogue)",
+          "value": "7x7 ft"
+        },
+        {
+          "name": "Source PDF",
+          "value": "Fabrication.pdf (page 10)"
+        }
+      ]
+    },
+    {
+      "name": "Double Arch Ring",
+      "slug": "double-arch-ring",
+      "sku": "ALK-RNG-004",
+      "category_slug": "rings",
+      "category_group": "Fabrication",
+      "price": 3500,
+      "sale_price": null,
+      "currency": "INR",
+      "short_description": "Rings · 6x6",
+      "description": "Double Arch Ring — rings for event, wedding, birthday and party decoration. Size / specification as per catalogue: 6x6. Fabricated to order. Custom sizes and finishes available on request.",
+      "dimensions": "6x6",
+      "material": null,
+      "colour": null,
+      "finish": null,
+      "weight": null,
+      "product_type": "READY_MADE",
+      "is_customizable": false,
+      "is_quote_only": false,
+      "is_featured": false,
+      "is_active": true,
+      "needs_review": false,
+      "stock_quantity": 25,
+      "low_stock_threshold": 5,
+      "source_pdf": "Fabrication.pdf",
+      "source_pages": [
+        11,
+        12
+      ],
+      "images": [
+        {
+          "file": "page-11.png",
+          "page": 11,
+          "is_primary": true,
+          "alt": "Double Arch Ring — fabrication product, catalogue page 11",
+          "sort_order": 0
+        },
+        {
+          "file": "page-12.png",
+          "page": 12,
+          "is_primary": false,
+          "alt": "Double Arch Ring — fabrication product, catalogue page 12",
+          "sort_order": 1
+        }
+      ],
+      "attributes": [
+        {
+          "name": "Specification (as per catalogue)",
+          "value": "6x6"
+        },
+        {
+          "name": "Source PDF",
+          "value": "Fabrication.pdf (page 11, 12)"
+        }
+      ]
+    },
+    {
+      "name": "Double Round Ring",
+      "slug": "double-round-ring",
+      "sku": "ALK-RNG-005",
+      "category_slug": "rings",
+      "category_group": "Fabrication",
+      "price": 3500,
+      "sale_price": null,
+      "currency": "INR",
+      "short_description": "Rings · 6x6",
+      "description": "Double Round Ring — rings for event, wedding, birthday and party decoration. Size / specification as per catalogue: 6x6. Fabricated to order. Custom sizes and finishes available on request.",
+      "dimensions": "6x6",
+      "material": null,
+      "colour": null,
+      "finish": null,
+      "weight": null,
+      "product_type": "READY_MADE",
+      "is_customizable": false,
+      "is_quote_only": false,
+      "is_featured": false,
+      "is_active": true,
+      "needs_review": false,
+      "stock_quantity": 25,
+      "low_stock_threshold": 5,
+      "source_pdf": "Fabrication.pdf",
+      "source_pages": [
+        13,
+        14
+      ],
+      "images": [
+        {
+          "file": "page-13.png",
+          "page": 13,
+          "is_primary": true,
+          "alt": "Double Round Ring — fabrication product, catalogue page 13",
+          "sort_order": 0
+        },
+        {
+          "file": "page-14.png",
+          "page": 14,
+          "is_primary": false,
+          "alt": "Double Round Ring — fabrication product, catalogue page 14",
+          "sort_order": 1
+        }
+      ],
+      "attributes": [
+        {
+          "name": "Specification (as per catalogue)",
+          "value": "6x6"
+        },
+        {
+          "name": "Source PDF",
+          "value": "Fabrication.pdf (page 13, 14)"
+        }
+      ]
+    },
+    {
+      "name": "Heart Shape Ring",
+      "slug": "heart-shape-ring",
+      "sku": "ALK-RNG-006",
+      "category_slug": "rings",
+      "category_group": "Fabrication",
+      "price": 2500,
+      "sale_price": null,
+      "currency": "INR",
+      "short_description": "Rings · 6x6",
+      "description": "Heart Shape Ring — rings for event, wedding, birthday and party decoration. Size / specification as per catalogue: 6x6. Fabricated to order. Custom sizes and finishes available on request.",
+      "dimensions": "6x6",
+      "material": null,
+      "colour": null,
+      "finish": null,
+      "weight": null,
+      "product_type": "READY_MADE",
+      "is_customizable": false,
+      "is_quote_only": false,
+      "is_featured": true,
+      "is_active": true,
+      "needs_review": false,
+      "stock_quantity": 25,
+      "low_stock_threshold": 5,
+      "source_pdf": "Fabrication.pdf",
+      "source_pages": [
+        15,
+        16
+      ],
+      "images": [
+        {
+          "file": "page-15.png",
+          "page": 15,
+          "is_primary": true,
+          "alt": "Heart Shape Ring — fabrication product, catalogue page 15",
+          "sort_order": 0
+        },
+        {
+          "file": "page-16.png",
+          "page": 16,
+          "is_primary": false,
+          "alt": "Heart Shape Ring — fabrication product, catalogue page 16",
+          "sort_order": 1
+        }
+      ],
+      "attributes": [
+        {
+          "name": "Specification (as per catalogue)",
+          "value": "6x6"
+        },
+        {
+          "name": "Source PDF",
+          "value": "Fabrication.pdf (page 15, 16)"
+        }
+      ]
+    },
+    {
+      "name": "Double Heart Shape Ring",
+      "slug": "double-heart-shape-ring",
+      "sku": "ALK-RNG-007",
+      "category_slug": "rings",
+      "category_group": "Fabrication",
+      "price": 4000,
+      "sale_price": null,
+      "currency": "INR",
+      "short_description": "Rings · 6x6",
+      "description": "Double Heart Shape Ring — rings for event, wedding, birthday and party decoration. Size / specification as per catalogue: 6x6. Fabricated to order. Custom sizes and finishes available on request.",
+      "dimensions": "6x6",
+      "material": null,
+      "colour": null,
+      "finish": null,
+      "weight": null,
+      "product_type": "READY_MADE",
+      "is_customizable": false,
+      "is_quote_only": false,
+      "is_featured": true,
+      "is_active": true,
+      "needs_review": false,
+      "stock_quantity": 25,
+      "low_stock_threshold": 5,
+      "source_pdf": "Fabrication.pdf",
+      "source_pages": [
+        17,
+        18
+      ],
+      "images": [
+        {
+          "file": "page-17.png",
+          "page": 17,
+          "is_primary": true,
+          "alt": "Double Heart Shape Ring — fabrication product, catalogue page 17",
+          "sort_order": 0
+        },
+        {
+          "file": "page-18.png",
+          "page": 18,
+          "is_primary": false,
+          "alt": "Double Heart Shape Ring — fabrication product, catalogue page 18",
+          "sort_order": 1
+        }
+      ],
+      "attributes": [
+        {
+          "name": "Specification (as per catalogue)",
+          "value": "6x6"
+        },
+        {
+          "name": "Source PDF",
+          "value": "Fabrication.pdf (page 17, 18)"
+        }
+      ]
+    },
+    {
+      "name": "Hexagonal Ring",
+      "slug": "hexagonal-ring",
+      "sku": "ALK-RNG-008",
+      "category_slug": "rings",
+      "category_group": "Fabrication",
+      "price": 2500,
+      "sale_price": null,
+      "currency": "INR",
+      "short_description": "Rings · 6x6",
+      "description": "Hexagonal Ring — rings for event, wedding, birthday and party decoration. Size / specification as per catalogue: 6x6. Fabricated to order. Custom sizes and finishes available on request.",
+      "dimensions": "6x6",
+      "material": null,
+      "colour": null,
+      "finish": null,
+      "weight": null,
+      "product_type": "READY_MADE",
+      "is_customizable": false,
+      "is_quote_only": false,
+      "is_featured": false,
+      "is_active": true,
+      "needs_review": false,
+      "stock_quantity": 25,
+      "low_stock_threshold": 5,
+      "source_pdf": "Fabrication.pdf",
+      "source_pages": [
+        19,
+        20
+      ],
+      "images": [
+        {
+          "file": "page-19.png",
+          "page": 19,
+          "is_primary": true,
+          "alt": "Hexagonal Ring — fabrication product, catalogue page 19",
+          "sort_order": 0
+        },
+        {
+          "file": "page-20.png",
+          "page": 20,
+          "is_primary": false,
+          "alt": "Hexagonal Ring — fabrication product, catalogue page 20",
+          "sort_order": 1
+        }
+      ],
+      "attributes": [
+        {
+          "name": "Specification (as per catalogue)",
+          "value": "6x6"
+        },
+        {
+          "name": "Source PDF",
+          "value": "Fabrication.pdf (page 19, 20)"
+        }
+      ]
+    },
+    {
+      "name": "Double Hexagonal Ring",
+      "slug": "double-hexagonal-ring",
+      "sku": "ALK-RNG-009",
+      "category_slug": "rings",
+      "category_group": "Fabrication",
+      "price": 3500,
+      "sale_price": null,
+      "currency": "INR",
+      "short_description": "Rings · 6x6",
+      "description": "Double Hexagonal Ring — rings for event, wedding, birthday and party decoration. Size / specification as per catalogue: 6x6. Fabricated to order. Custom sizes and finishes available on request.",
+      "dimensions": "6x6",
+      "material": null,
+      "colour": null,
+      "finish": null,
+      "weight": null,
+      "product_type": "READY_MADE",
+      "is_customizable": false,
+      "is_quote_only": false,
+      "is_featured": false,
+      "is_active": true,
+      "needs_review": false,
+      "stock_quantity": 25,
+      "low_stock_threshold": 5,
+      "source_pdf": "Fabrication.pdf",
+      "source_pages": [
+        21,
+        22
+      ],
+      "images": [
+        {
+          "file": "page-21.png",
+          "page": 21,
+          "is_primary": true,
+          "alt": "Double Hexagonal Ring — fabrication product, catalogue page 21",
+          "sort_order": 0
+        },
+        {
+          "file": "page-22.png",
+          "page": 22,
+          "is_primary": false,
+          "alt": "Double Hexagonal Ring — fabrication product, catalogue page 22",
+          "sort_order": 1
+        }
+      ],
+      "attributes": [
+        {
+          "name": "Specification (as per catalogue)",
+          "value": "6x6"
+        },
+        {
+          "name": "Source PDF",
+          "value": "Fabrication.pdf (page 21, 22)"
+        }
+      ]
+    },
+    {
+      "name": "Moon Ring",
+      "slug": "moon-ring",
+      "sku": "ALK-RNG-010",
+      "category_slug": "rings",
+      "category_group": "Fabrication",
+      "price": 4800,
+      "sale_price": null,
+      "currency": "INR",
+      "short_description": "Rings · 6x6",
+      "description": "Moon Ring — rings for event, wedding, birthday and party decoration. Size / specification as per catalogue: 6x6. Fabricated to order. Custom sizes and finishes available on request.",
+      "dimensions": "6x6",
+      "material": null,
+      "colour": null,
+      "finish": null,
+      "weight": null,
+      "product_type": "READY_MADE",
+      "is_customizable": false,
+      "is_quote_only": false,
+      "is_featured": true,
+      "is_active": true,
+      "needs_review": false,
+      "stock_quantity": 25,
+      "low_stock_threshold": 5,
+      "source_pdf": "Fabrication.pdf",
+      "source_pages": [
+        23,
+        24
+      ],
+      "images": [
+        {
+          "file": "page-23.png",
+          "page": 23,
+          "is_primary": true,
+          "alt": "Moon Ring — fabrication product, catalogue page 23",
+          "sort_order": 0
+        },
+        {
+          "file": "page-24.png",
+          "page": 24,
+          "is_primary": false,
+          "alt": "Moon Ring — fabrication product, catalogue page 24",
+          "sort_order": 1
+        }
+      ],
+      "attributes": [
+        {
+          "name": "Specification (as per catalogue)",
+          "value": "6x6"
+        },
+        {
+          "name": "Source PDF",
+          "value": "Fabrication.pdf (page 23, 24)"
+        }
+      ]
+    },
+    {
+      "name": "Moon Ring 3 Ft",
+      "slug": "moon-ring-3-ft",
+      "sku": "ALK-RNG-011",
+      "category_slug": "rings",
+      "category_group": "Fabrication",
+      "price": 1700,
+      "sale_price": null,
+      "currency": "INR",
+      "short_description": "Rings · 3 ft",
+      "description": "Moon Ring 3 Ft — rings for event, wedding, birthday and party decoration. Size / specification as per catalogue: 3 ft. Fabricated to order. Custom sizes and finishes available on request.",
+      "dimensions": "3 ft",
+      "material": null,
+      "colour": null,
+      "finish": null,
+      "weight": null,
+      "product_type": "READY_MADE",
+      "is_customizable": false,
+      "is_quote_only": false,
+      "is_featured": false,
+      "is_active": true,
+      "needs_review": false,
+      "stock_quantity": 25,
+      "low_stock_threshold": 5,
+      "source_pdf": "Fabrication.pdf",
+      "source_pages": [
+        25
+      ],
+      "images": [
+        {
+          "file": "page-25.png",
+          "page": 25,
+          "is_primary": true,
+          "alt": "Moon Ring 3 Ft — fabrication product, catalogue page 25",
+          "sort_order": 0
+        }
+      ],
+      "attributes": [
+        {
+          "name": "Specification (as per catalogue)",
+          "value": "3 ft"
+        },
+        {
+          "name": "Source PDF",
+          "value": "Fabrication.pdf (page 25)"
+        }
+      ]
+    },
+    {
+      "name": "Moon Ring 4 Ft",
+      "slug": "moon-ring-4-ft",
+      "sku": "ALK-RNG-012",
+      "category_slug": "rings",
+      "category_group": "Fabrication",
+      "price": 2000,
+      "sale_price": null,
+      "currency": "INR",
+      "short_description": "Rings · 4 ft",
+      "description": "Moon Ring 4 Ft — rings for event, wedding, birthday and party decoration. Size / specification as per catalogue: 4 ft. Fabricated to order. Custom sizes and finishes available on request.",
+      "dimensions": "4 ft",
+      "material": null,
+      "colour": null,
+      "finish": null,
+      "weight": null,
+      "product_type": "READY_MADE",
+      "is_customizable": false,
+      "is_quote_only": false,
+      "is_featured": false,
+      "is_active": true,
+      "needs_review": false,
+      "stock_quantity": 25,
+      "low_stock_threshold": 5,
+      "source_pdf": "Fabrication.pdf",
+      "source_pages": [
+        25
+      ],
+      "images": [
+        {
+          "file": "page-25.png",
+          "page": 25,
+          "is_primary": true,
+          "alt": "Moon Ring 4 Ft — fabrication product, catalogue page 25",
+          "sort_order": 0
+        }
+      ],
+      "attributes": [
+        {
+          "name": "Specification (as per catalogue)",
+          "value": "4 ft"
+        },
+        {
+          "name": "Source PDF",
+          "value": "Fabrication.pdf (page 25)"
+        }
+      ]
+    },
+    {
+      "name": "Double Layer",
+      "slug": "double-layer",
+      "sku": "ALK-FRM-004",
+      "category_slug": "frames",
+      "category_group": "Fabrication",
+      "price": 3500,
+      "sale_price": null,
+      "currency": "INR",
+      "short_description": "Frames · Minimum 5x5 ft; maximum 10x10 ft",
+      "description": "Double Layer — frames for event, wedding, birthday and party decoration. Size / specification as per catalogue: Minimum 5x5 ft; maximum 10x10 ft. Fabricated to order. Custom sizes and finishes available on request.",
+      "dimensions": "Minimum 5x5 ft; maximum 10x10 ft",
+      "material": null,
+      "colour": null,
+      "finish": null,
+      "weight": null,
+      "product_type": "READY_MADE",
+      "is_customizable": false,
+      "is_quote_only": false,
+      "is_featured": false,
+      "is_active": true,
+      "needs_review": false,
+      "stock_quantity": 25,
+      "low_stock_threshold": 5,
+      "source_pdf": "Fabrication.pdf",
+      "source_pages": [
+        26
+      ],
+      "images": [
+        {
+          "file": "page-26.png",
+          "page": 26,
+          "is_primary": true,
+          "alt": "Double Layer — fabrication product, catalogue page 26",
+          "sort_order": 0
+        }
+      ],
+      "attributes": [
+        {
+          "name": "Specification (as per catalogue)",
+          "value": "Minimum 5x5 ft; maximum 10x10 ft"
+        },
+        {
+          "name": "Source PDF",
+          "value": "Fabrication.pdf (page 26)"
+        }
+      ]
+    },
+    {
+      "name": "Square Canopy",
+      "slug": "square-canopy",
+      "sku": "ALK-CNP-001",
+      "category_slug": "canopies",
+      "category_group": "Fabrication",
+      "price": 5000,
+      "sale_price": null,
+      "currency": "INR",
+      "short_description": "Canopies · 5x5–10x10 adjustable",
+      "description": "Square Canopy — canopies for event, wedding, birthday and party decoration. Size / specification as per catalogue: 5x5–10x10 adjustable. Fabricated to order. Custom sizes and finishes available on request.",
+      "dimensions": "5x5–10x10 adjustable",
+      "material": null,
+      "colour": null,
+      "finish": null,
+      "weight": null,
+      "product_type": "READY_MADE_AND_CUSTOM",
+      "is_customizable": true,
+      "is_quote_only": false,
+      "is_featured": true,
+      "is_active": true,
+      "needs_review": false,
+      "stock_quantity": 25,
+      "low_stock_threshold": 5,
+      "source_pdf": "Fabrication.pdf",
+      "source_pages": [
+        27,
+        28
+      ],
+      "images": [
+        {
+          "file": "page-27.png",
+          "page": 27,
+          "is_primary": true,
+          "alt": "Square Canopy — fabrication product, catalogue page 27",
+          "sort_order": 0
+        },
+        {
+          "file": "page-28.png",
+          "page": 28,
+          "is_primary": false,
+          "alt": "Square Canopy — fabrication product, catalogue page 28",
+          "sort_order": 1
+        }
+      ],
+      "attributes": [
+        {
+          "name": "Specification (as per catalogue)",
+          "value": "5x5–10x10 adjustable"
+        },
+        {
+          "name": "Source PDF",
+          "value": "Fabrication.pdf (page 27, 28)"
+        }
+      ]
+    },
+    {
+      "name": "Double Pipe Square Canopy",
+      "slug": "double-pipe-square-canopy",
+      "sku": "ALK-CNP-002",
+      "category_slug": "canopies",
+      "category_group": "Fabrication",
+      "price": 7000,
+      "sale_price": null,
+      "currency": "INR",
+      "short_description": "Canopies · 5–10 ft adjustable width; 5–10 ft adjustable height; inner height 4 ft",
+      "description": "Double Pipe Square Canopy — canopies for event, wedding, birthday and party decoration. Size / specification as per catalogue: 5–10 ft adjustable width; 5–10 ft adjustable height; inner height 4 ft. Fabricated to order. Custom sizes and finishes available on request.",
+      "dimensions": "5–10 ft adjustable width; 5–10 ft adjustable height; inner height 4 ft",
+      "material": null,
+      "colour": null,
+      "finish": null,
+      "weight": null,
+      "product_type": "READY_MADE_AND_CUSTOM",
+      "is_customizable": true,
+      "is_quote_only": false,
+      "is_featured": false,
+      "is_active": true,
+      "needs_review": false,
+      "stock_quantity": 25,
+      "low_stock_threshold": 5,
+      "source_pdf": "Fabrication.pdf",
+      "source_pages": [
+        29
+      ],
+      "images": [
+        {
+          "file": "page-29.png",
+          "page": 29,
+          "is_primary": true,
+          "alt": "Double Pipe Square Canopy — fabrication product, catalogue page 29",
+          "sort_order": 0
+        }
+      ],
+      "attributes": [
+        {
+          "name": "Specification (as per catalogue)",
+          "value": "5–10 ft adjustable width; 5–10 ft adjustable height; inner height 4 ft"
+        },
+        {
+          "name": "Source PDF",
+          "value": "Fabrication.pdf (page 29)"
+        }
+      ]
+    },
+    {
+      "name": "Haldi Setup",
+      "slug": "haldi-setup",
+      "sku": "ALK-EVT-001",
+      "category_slug": "event-setups",
+      "category_group": "Fabrication",
+      "price": 3500,
+      "sale_price": null,
+      "currency": "INR",
+      "short_description": "Event Setups · 5x8",
+      "description": "Haldi Setup — event setups for event, wedding, birthday and party decoration. Size / specification as per catalogue: 5x8. Fabricated to order. Custom sizes and finishes available on request.",
+      "dimensions": "5x8",
+      "material": null,
+      "colour": null,
+      "finish": null,
+      "weight": null,
+      "product_type": "READY_MADE",
+      "is_customizable": false,
+      "is_quote_only": false,
+      "is_featured": true,
+      "is_active": true,
+      "needs_review": false,
+      "stock_quantity": 25,
+      "low_stock_threshold": 5,
+      "source_pdf": "Fabrication.pdf",
+      "source_pages": [
+        30,
+        31
+      ],
+      "images": [
+        {
+          "file": "page-30.png",
+          "page": 30,
+          "is_primary": true,
+          "alt": "Haldi Setup — fabrication product, catalogue page 30",
+          "sort_order": 0
+        },
+        {
+          "file": "page-31.png",
+          "page": 31,
+          "is_primary": false,
+          "alt": "Haldi Setup — fabrication product, catalogue page 31",
+          "sort_order": 1
+        }
+      ],
+      "attributes": [
+        {
+          "name": "Specification (as per catalogue)",
+          "value": "5x8"
+        },
+        {
+          "name": "Source PDF",
+          "value": "Fabrication.pdf (page 30, 31)"
+        }
+      ]
+    },
+    {
+      "name": "Flexi Frame",
+      "slug": "flexi-frame",
+      "sku": "ALK-FRM-005",
+      "category_slug": "frames",
+      "category_group": "Fabrication",
+      "price": 6000,
+      "sale_price": null,
+      "currency": "INR",
+      "short_description": "Frames",
+      "description": "Flexi Frame — frames for event, wedding, birthday and party decoration. Specification as printed in the source catalogue (pending review): Size text in PDF appears as: 323-M-3ch 35,30 270m (unclear). Fabricated to order. Custom sizes and finishes available on request.",
+      "dimensions": "Size text in PDF appears as: 323-M-3ch 35,30 270m (unclear)",
+      "material": null,
+      "colour": null,
+      "finish": null,
+      "weight": null,
+      "product_type": "READY_MADE",
+      "is_customizable": false,
+      "is_quote_only": false,
+      "is_featured": false,
+      "is_active": true,
+      "needs_review": true,
+      "stock_quantity": 25,
+      "low_stock_threshold": 5,
+      "source_pdf": "Fabrication.pdf",
+      "source_pages": [
+        32,
+        33
+      ],
+      "images": [
+        {
+          "file": "page-32.png",
+          "page": 32,
+          "is_primary": true,
+          "alt": "Flexi Frame — fabrication product, catalogue page 32",
+          "sort_order": 0
+        },
+        {
+          "file": "page-33.png",
+          "page": 33,
+          "is_primary": false,
+          "alt": "Flexi Frame — fabrication product, catalogue page 33",
+          "sort_order": 1
+        }
+      ],
+      "attributes": [
+        {
+          "name": "Specification (as per catalogue)",
+          "value": "Size text in PDF appears as: 323-M-3ch 35,30 270m (unclear)"
+        },
+        {
+          "name": "Source PDF",
+          "value": "Fabrication.pdf (page 32, 33)"
+        }
+      ]
+    },
+    {
+      "name": "Italian Backdrop",
+      "slug": "italian-backdrop",
+      "sku": "ALK-BKD-001",
+      "category_slug": "backdrops",
+      "category_group": "Fabrication",
+      "price": 2000,
+      "sale_price": null,
+      "currency": "INR",
+      "short_description": "Backdrops",
+      "description": "Italian Backdrop — backdrops for event, wedding, birthday and party decoration. Specification as printed in the source catalogue (pending review): 6x3, 7x4, 6x3 (as printed in PDF). Fabricated to order. Custom sizes and finishes available on request.",
+      "dimensions": "6x3, 7x4, 6x3 (as printed in PDF)",
+      "material": null,
+      "colour": null,
+      "finish": null,
+      "weight": null,
+      "product_type": "READY_MADE",
+      "is_customizable": false,
+      "is_quote_only": false,
+      "is_featured": false,
+      "is_active": true,
+      "needs_review": true,
+      "stock_quantity": 25,
+      "low_stock_threshold": 5,
+      "source_pdf": "Fabrication.pdf",
+      "source_pages": [
+        34
+      ],
+      "images": [
+        {
+          "file": "page-34.png",
+          "page": 34,
+          "is_primary": true,
+          "alt": "Italian Backdrop — fabrication product, catalogue page 34",
+          "sort_order": 0
+        }
+      ],
+      "attributes": [
+        {
+          "name": "Specification (as per catalogue)",
+          "value": "6x3, 7x4, 6x3 (as printed in PDF)"
+        },
+        {
+          "name": "Source PDF",
+          "value": "Fabrication.pdf (page 34)"
+        }
+      ]
+    },
+    {
+      "name": "Single U Shape Adjustable",
+      "slug": "single-u-shape-adjustable",
+      "sku": "ALK-FRM-006",
+      "category_slug": "frames",
+      "category_group": "Fabrication",
+      "price": 2500,
+      "sale_price": null,
+      "currency": "INR",
+      "short_description": "Frames · 6 ft width; 6–9 ft adjustable height",
+      "description": "Single U Shape Adjustable — frames for event, wedding, birthday and party decoration. Size / specification as per catalogue: 6 ft width; 6–9 ft adjustable height. Fabricated to order. Custom sizes and finishes available on request.",
+      "dimensions": "6 ft width; 6–9 ft adjustable height",
+      "material": null,
+      "colour": null,
+      "finish": null,
+      "weight": null,
+      "product_type": "READY_MADE_AND_CUSTOM",
+      "is_customizable": true,
+      "is_quote_only": false,
+      "is_featured": false,
+      "is_active": true,
+      "needs_review": false,
+      "stock_quantity": 25,
+      "low_stock_threshold": 5,
+      "source_pdf": "Fabrication.pdf",
+      "source_pages": [
+        35
+      ],
+      "images": [
+        {
+          "file": "page-35.png",
+          "page": 35,
+          "is_primary": true,
+          "alt": "Single U Shape Adjustable — fabrication product, catalogue page 35",
+          "sort_order": 0
+        }
+      ],
+      "attributes": [
+        {
+          "name": "Specification (as per catalogue)",
+          "value": "6 ft width; 6–9 ft adjustable height"
+        },
+        {
+          "name": "Source PDF",
+          "value": "Fabrication.pdf (page 35)"
+        }
+      ]
+    },
+    {
+      "name": "Double Line U Shape Adjustable",
+      "slug": "double-line-u-shape-adjustable",
+      "sku": "ALK-FRM-007",
+      "category_slug": "frames",
+      "category_group": "Fabrication",
+      "price": 3500,
+      "sale_price": null,
+      "currency": "INR",
+      "short_description": "Frames · 6 ft width; 6–9 ft adjustable height",
+      "description": "Double Line U Shape Adjustable — frames for event, wedding, birthday and party decoration. Size / specification as per catalogue: 6 ft width; 6–9 ft adjustable height. Fabricated to order. Custom sizes and finishes available on request.",
+      "dimensions": "6 ft width; 6–9 ft adjustable height",
+      "material": null,
+      "colour": null,
+      "finish": null,
+      "weight": null,
+      "product_type": "READY_MADE_AND_CUSTOM",
+      "is_customizable": true,
+      "is_quote_only": false,
+      "is_featured": false,
+      "is_active": true,
+      "needs_review": false,
+      "stock_quantity": 25,
+      "low_stock_threshold": 5,
+      "source_pdf": "Fabrication.pdf",
+      "source_pages": [
+        36
+      ],
+      "images": [
+        {
+          "file": "page-36.png",
+          "page": 36,
+          "is_primary": true,
+          "alt": "Double Line U Shape Adjustable — fabrication product, catalogue page 36",
+          "sort_order": 0
+        }
+      ],
+      "attributes": [
+        {
+          "name": "Specification (as per catalogue)",
+          "value": "6 ft width; 6–9 ft adjustable height"
+        },
+        {
+          "name": "Source PDF",
+          "value": "Fabrication.pdf (page 36)"
+        }
+      ]
+    },
+    {
+      "name": "3 Layer Frame",
+      "slug": "3-layer-frame",
+      "sku": "ALK-FRM-008",
+      "category_slug": "frames",
+      "category_group": "Fabrication",
+      "price": 5000,
+      "sale_price": null,
+      "currency": "INR",
+      "short_description": "Frames · 8 ft height; 4 ft width",
+      "description": "3 Layer Frame — frames for event, wedding, birthday and party decoration. Size / specification as per catalogue: 8 ft height; 4 ft width. Fabricated to order. Custom sizes and finishes available on request.",
+      "dimensions": "8 ft height; 4 ft width",
+      "material": null,
+      "colour": null,
+      "finish": null,
+      "weight": null,
+      "product_type": "READY_MADE",
+      "is_customizable": false,
+      "is_quote_only": false,
+      "is_featured": false,
+      "is_active": true,
+      "needs_review": false,
+      "stock_quantity": 25,
+      "low_stock_threshold": 5,
+      "source_pdf": "Fabrication.pdf",
+      "source_pages": [
+        37
+      ],
+      "images": [
+        {
+          "file": "page-37.png",
+          "page": 37,
+          "is_primary": true,
+          "alt": "3 Layer Frame — fabrication product, catalogue page 37",
+          "sort_order": 0
+        }
+      ],
+      "attributes": [
+        {
+          "name": "Specification (as per catalogue)",
+          "value": "8 ft height; 4 ft width"
+        },
+        {
+          "name": "Source PDF",
+          "value": "Fabrication.pdf (page 37)"
+        }
+      ]
+    },
+    {
+      "name": "Italic Backdrop Set of 3",
+      "slug": "italic-backdrop-set-of-3",
+      "sku": "ALK-BKD-002",
+      "category_slug": "backdrops",
+      "category_group": "Fabrication",
+      "price": 4000,
+      "sale_price": null,
+      "currency": "INR",
+      "short_description": "Backdrops · Side widths 3 ft each; center width 4 ft; side heights 6 ft each; center height 7 ft",
+      "description": "Italic Backdrop Set of 3 — backdrops for event, wedding, birthday and party decoration. Size / specification as per catalogue: Side widths 3 ft each; center width 4 ft; side heights 6 ft each; center height 7 ft. Fabricated to order. Custom sizes and finishes available on request.",
+      "dimensions": "Side widths 3 ft each; center width 4 ft; side heights 6 ft each; center height 7 ft",
+      "material": null,
+      "colour": null,
+      "finish": null,
+      "weight": null,
+      "product_type": "READY_MADE",
+      "is_customizable": false,
+      "is_quote_only": false,
+      "is_featured": false,
+      "is_active": true,
+      "needs_review": false,
+      "stock_quantity": 25,
+      "low_stock_threshold": 5,
+      "source_pdf": "Fabrication.pdf",
+      "source_pages": [
+        38
+      ],
+      "images": [
+        {
+          "file": "page-38.png",
+          "page": 38,
+          "is_primary": true,
+          "alt": "Italic Backdrop Set of 3 — fabrication product, catalogue page 38",
+          "sort_order": 0
+        }
+      ],
+      "attributes": [
+        {
+          "name": "Specification (as per catalogue)",
+          "value": "Side widths 3 ft each; center width 4 ft; side heights 6 ft each; center height 7 ft"
+        },
+        {
+          "name": "Source PDF",
+          "value": "Fabrication.pdf (page 38)"
+        }
+      ]
+    },
+    {
+      "name": "Square 3 pc Set",
+      "slug": "square-3-pc-set",
+      "sku": "ALK-FRM-009",
+      "category_slug": "frames",
+      "category_group": "Fabrication",
+      "price": 4000,
+      "sale_price": null,
+      "currency": "INR",
+      "short_description": "Frames · Widths 3 ft, 4 ft, 3 ft; heights 6 ft, 7 ft, 6 ft",
+      "description": "Square 3 pc Set — frames for event, wedding, birthday and party decoration. Size / specification as per catalogue: Widths 3 ft, 4 ft, 3 ft; heights 6 ft, 7 ft, 6 ft. Fabricated to order. Custom sizes and finishes available on request.",
+      "dimensions": "Widths 3 ft, 4 ft, 3 ft; heights 6 ft, 7 ft, 6 ft",
+      "material": null,
+      "colour": null,
+      "finish": null,
+      "weight": null,
+      "product_type": "READY_MADE",
+      "is_customizable": false,
+      "is_quote_only": false,
+      "is_featured": false,
+      "is_active": true,
+      "needs_review": false,
+      "stock_quantity": 25,
+      "low_stock_threshold": 5,
+      "source_pdf": "Fabrication.pdf",
+      "source_pages": [
+        39
+      ],
+      "images": [
+        {
+          "file": "page-39.png",
+          "page": 39,
+          "is_primary": true,
+          "alt": "Square 3 pc Set — fabrication product, catalogue page 39",
+          "sort_order": 0
+        }
+      ],
+      "attributes": [
+        {
+          "name": "Specification (as per catalogue)",
+          "value": "Widths 3 ft, 4 ft, 3 ft; heights 6 ft, 7 ft, 6 ft"
+        },
+        {
+          "name": "Source PDF",
+          "value": "Fabrication.pdf (page 39)"
+        }
+      ]
+    },
+    {
+      "name": "Peta Frame",
+      "slug": "peta-frame",
+      "sku": "ALK-FRM-010",
+      "category_slug": "frames",
+      "category_group": "Fabrication",
+      "price": 6000,
+      "sale_price": null,
+      "currency": "INR",
+      "short_description": "Frames · Outer side sections 6 ft wide x 6 ft high; inner sections 2 ft wide x 7 ft high; center 4 ft wide x 7 ft high",
+      "description": "Peta Frame — frames for event, wedding, birthday and party decoration. Size / specification as per catalogue: Outer side sections 6 ft wide x 6 ft high; inner sections 2 ft wide x 7 ft high; center 4 ft wide x 7 ft high. Fabricated to order. Custom sizes and finishes available on request.",
+      "dimensions": "Outer side sections 6 ft wide x 6 ft high; inner sections 2 ft wide x 7 ft high; center 4 ft wide x 7 ft high",
+      "material": null,
+      "colour": null,
+      "finish": null,
+      "weight": null,
+      "product_type": "READY_MADE",
+      "is_customizable": false,
+      "is_quote_only": false,
+      "is_featured": true,
+      "is_active": true,
+      "needs_review": false,
+      "stock_quantity": 25,
+      "low_stock_threshold": 5,
+      "source_pdf": "Fabrication.pdf",
+      "source_pages": [
+        40
+      ],
+      "images": [
+        {
+          "file": "page-40.png",
+          "page": 40,
+          "is_primary": true,
+          "alt": "Peta Frame — fabrication product, catalogue page 40",
+          "sort_order": 0
+        }
+      ],
+      "attributes": [
+        {
+          "name": "Specification (as per catalogue)",
+          "value": "Outer side sections 6 ft wide x 6 ft high; inner sections 2 ft wide x 7 ft high; center 4 ft wide x 7 ft high"
+        },
+        {
+          "name": "Source PDF",
+          "value": "Fabrication.pdf (page 40)"
+        }
+      ]
+    },
+    {
+      "name": "Entry Arch",
+      "slug": "entry-arch",
+      "sku": "ALK-ARC-001",
+      "category_slug": "arches",
+      "category_group": "Fabrication",
+      "price": 1100,
+      "sale_price": null,
+      "currency": "INR",
+      "short_description": "Arches · 7.5 ft high; price is per piece",
+      "description": "Entry Arch — arches for event, wedding, birthday and party decoration. Size / specification as per catalogue: 7.5 ft high; price is per piece. Fabricated to order. Custom sizes and finishes available on request.",
+      "dimensions": "7.5 ft high; price is per piece",
+      "material": null,
+      "colour": null,
+      "finish": null,
+      "weight": null,
+      "product_type": "READY_MADE",
+      "is_customizable": false,
+      "is_quote_only": false,
+      "is_featured": false,
+      "is_active": true,
+      "needs_review": false,
+      "stock_quantity": 25,
+      "low_stock_threshold": 5,
+      "source_pdf": "Fabrication.pdf",
+      "source_pages": [
+        41
+      ],
+      "images": [
+        {
+          "file": "page-41.png",
+          "page": 41,
+          "is_primary": true,
+          "alt": "Entry Arch — fabrication product, catalogue page 41",
+          "sort_order": 0
+        }
+      ],
+      "attributes": [
+        {
+          "name": "Specification (as per catalogue)",
+          "value": "7.5 ft high; price is per piece"
+        },
+        {
+          "name": "Source PDF",
+          "value": "Fabrication.pdf (page 41)"
+        }
+      ]
+    },
+    {
+      "name": "Cylinder Cake Table Brown",
+      "slug": "cylinder-cake-table-brown",
+      "sku": "ALK-TBL-001",
+      "category_slug": "cake-tables",
+      "category_group": "Tables",
+      "price": 2500,
+      "sale_price": null,
+      "currency": "INR",
+      "short_description": "Cake Tables · Diameters 30/35/40 cm; heights 98/111/128 cm; corresponding heights also shown as 2.3/2.8/3 ft",
+      "description": "Cylinder Cake Table Brown — cake tables for event, wedding, birthday and party decoration. Size / specification as per catalogue: Diameters 30/35/40 cm; heights 98/111/128 cm; corresponding heights also shown as 2.3/2.8/3 ft. Fabricated to order. Custom sizes and finishes available on request.",
+      "dimensions": "Diameters 30/35/40 cm; heights 98/111/128 cm; corresponding heights also shown as 2.3/2.8/3 ft",
+      "material": null,
+      "colour": null,
+      "finish": null,
+      "weight": null,
+      "product_type": "READY_MADE",
+      "is_customizable": false,
+      "is_quote_only": false,
+      "is_featured": false,
+      "is_active": true,
+      "needs_review": false,
+      "stock_quantity": 25,
+      "low_stock_threshold": 5,
+      "source_pdf": "Fabrication.pdf",
+      "source_pages": [
+        42
+      ],
+      "images": [
+        {
+          "file": "page-42.png",
+          "page": 42,
+          "is_primary": true,
+          "alt": "Cylinder Cake Table Brown — fabrication product, catalogue page 42",
+          "sort_order": 0
+        }
+      ],
+      "attributes": [
+        {
+          "name": "Specification (as per catalogue)",
+          "value": "Diameters 30/35/40 cm; heights 98/111/128 cm; corresponding heights also shown as 2.3/2.8/3 ft"
+        },
+        {
+          "name": "Source PDF",
+          "value": "Fabrication.pdf (page 42)"
+        }
+      ]
+    },
+    {
+      "name": "Square Cake Table",
+      "slug": "square-cake-table",
+      "sku": "ALK-TBL-002",
+      "category_slug": "cake-tables",
+      "category_group": "Tables",
+      "price": 3000,
+      "sale_price": null,
+      "currency": "INR",
+      "short_description": "Cake Tables · Set of 3 shown; dimensions not stated in PDF",
+      "description": "Square Cake Table — cake tables for event, wedding, birthday and party decoration. Size / specification as per catalogue: Set of 3 shown; dimensions not stated in PDF. Fabricated to order. Custom sizes and finishes available on request.",
+      "dimensions": "Set of 3 shown; dimensions not stated in PDF",
+      "material": null,
+      "colour": null,
+      "finish": null,
+      "weight": null,
+      "product_type": "READY_MADE",
+      "is_customizable": false,
+      "is_quote_only": false,
+      "is_featured": false,
+      "is_active": true,
+      "needs_review": false,
+      "stock_quantity": 25,
+      "low_stock_threshold": 5,
+      "source_pdf": "Fabrication.pdf",
+      "source_pages": [
+        43
+      ],
+      "images": [
+        {
+          "file": "page-43.png",
+          "page": 43,
+          "is_primary": true,
+          "alt": "Square Cake Table — fabrication product, catalogue page 43",
+          "sort_order": 0
+        }
+      ],
+      "attributes": [
+        {
+          "name": "Specification (as per catalogue)",
+          "value": "Set of 3 shown; dimensions not stated in PDF"
+        },
+        {
+          "name": "Source PDF",
+          "value": "Fabrication.pdf (page 43)"
+        }
+      ]
+    },
+    {
+      "name": "Welcome Standy Metal",
+      "slug": "welcome-standy-metal",
+      "sku": "ALK-STD-001",
+      "category_slug": "stands",
+      "category_group": "Stands",
+      "price": 1350,
+      "sale_price": null,
+      "currency": "INR",
+      "short_description": "Stands · Metal standy; dimensions not stated in PDF",
+      "description": "Welcome Standy Metal — stands for event, wedding, birthday and party decoration. Size / specification as per catalogue: Metal standy; dimensions not stated in PDF. Fabricated to order. Custom sizes and finishes available on request.",
+      "dimensions": "Metal standy; dimensions not stated in PDF",
+      "material": null,
+      "colour": null,
+      "finish": null,
+      "weight": null,
+      "product_type": "READY_MADE",
+      "is_customizable": false,
+      "is_quote_only": false,
+      "is_featured": false,
+      "is_active": true,
+      "needs_review": false,
+      "stock_quantity": 25,
+      "low_stock_threshold": 5,
+      "source_pdf": "Fabrication.pdf",
+      "source_pages": [
+        44
+      ],
+      "images": [
+        {
+          "file": "page-44.png",
+          "page": 44,
+          "is_primary": true,
+          "alt": "Welcome Standy Metal — fabrication product, catalogue page 44",
+          "sort_order": 0
+        }
+      ],
+      "attributes": [
+        {
+          "name": "Specification (as per catalogue)",
+          "value": "Metal standy; dimensions not stated in PDF"
+        },
+        {
+          "name": "Source PDF",
+          "value": "Fabrication.pdf (page 44)"
+        }
+      ]
+    },
+    {
+      "name": "Wooden Standy",
+      "slug": "wooden-standy",
+      "sku": "ALK-STD-002",
+      "category_slug": "stands",
+      "category_group": "Stands",
+      "price": 999,
+      "sale_price": null,
+      "currency": "INR",
+      "short_description": "Stands · 150 cm; 12 pcs carton; total height approx 4.9 ft; lower height approx 3.8 ft; other approximate dimensions shown in image",
+      "description": "Wooden Standy — stands for event, wedding, birthday and party decoration. Size / specification as per catalogue: 150 cm; 12 pcs carton; total height approx 4.9 ft; lower height approx 3.8 ft; other approximate dimensions shown in image. Fabricated to order. Custom sizes and finishes available on request.",
+      "dimensions": "150 cm; 12 pcs carton; total height approx 4.9 ft; lower height approx 3.8 ft; other approximate dimensions shown in image",
+      "material": null,
+      "colour": null,
+      "finish": null,
+      "weight": null,
+      "product_type": "READY_MADE",
+      "is_customizable": false,
+      "is_quote_only": false,
+      "is_featured": false,
+      "is_active": true,
+      "needs_review": false,
+      "stock_quantity": 25,
+      "low_stock_threshold": 5,
+      "source_pdf": "Fabrication.pdf",
+      "source_pages": [
+        45
+      ],
+      "images": [
+        {
+          "file": "page-45.png",
+          "page": 45,
+          "is_primary": true,
+          "alt": "Wooden Standy — fabrication product, catalogue page 45",
+          "sort_order": 0
+        }
+      ],
+      "attributes": [
+        {
+          "name": "Specification (as per catalogue)",
+          "value": "150 cm; 12 pcs carton; total height approx 4.9 ft; lower height approx 3.8 ft; other approximate dimensions shown in image"
+        },
+        {
+          "name": "Source PDF",
+          "value": "Fabrication.pdf (page 45)"
+        }
+      ]
+    },
+    {
+      "name": "Foldable Trust",
+      "slug": "foldable-trust",
+      "sku": "ALK-STD-003",
+      "category_slug": "stands",
+      "category_group": "Stands",
+      "price": 3500,
+      "sale_price": null,
+      "currency": "INR",
+      "short_description": "Stands · 1 ft width; 5 ft height",
+      "description": "Foldable Trust — stands for event, wedding, birthday and party decoration. Size / specification as per catalogue: 1 ft width; 5 ft height. Fabricated to order. Custom sizes and finishes available on request.",
+      "dimensions": "1 ft width; 5 ft height",
+      "material": null,
+      "colour": null,
+      "finish": null,
+      "weight": null,
+      "product_type": "READY_MADE",
+      "is_customizable": false,
+      "is_quote_only": false,
+      "is_featured": false,
+      "is_active": true,
+      "needs_review": false,
+      "stock_quantity": 25,
+      "low_stock_threshold": 5,
+      "source_pdf": "Fabrication.pdf",
+      "source_pages": [
+        46
+      ],
+      "images": [
+        {
+          "file": "page-46.png",
+          "page": 46,
+          "is_primary": true,
+          "alt": "Foldable Trust — fabrication product, catalogue page 46",
+          "sort_order": 0
+        }
+      ],
+      "attributes": [
+        {
+          "name": "Specification (as per catalogue)",
+          "value": "1 ft width; 5 ft height"
+        },
+        {
+          "name": "Source PDF",
+          "value": "Fabrication.pdf (page 46)"
+        }
+      ]
+    },
+    {
+      "name": "Adjustable Cutouts Stand",
+      "slug": "adjustable-cutouts-stand",
+      "sku": "ALK-STD-004",
+      "category_slug": "stands",
+      "category_group": "Stands",
+      "price": 2000,
+      "sale_price": null,
+      "currency": "INR",
+      "short_description": "Stands · 5–10 ft adjustable; 2 pcs",
+      "description": "Adjustable Cutouts Stand — stands for event, wedding, birthday and party decoration. Size / specification as per catalogue: 5–10 ft adjustable; 2 pcs. Fabricated to order. Custom sizes and finishes available on request.",
+      "dimensions": "5–10 ft adjustable; 2 pcs",
+      "material": null,
+      "colour": null,
+      "finish": null,
+      "weight": null,
+      "product_type": "READY_MADE_AND_CUSTOM",
+      "is_customizable": true,
+      "is_quote_only": false,
+      "is_featured": false,
+      "is_active": true,
+      "needs_review": false,
+      "stock_quantity": 25,
+      "low_stock_threshold": 5,
+      "source_pdf": "Fabrication.pdf",
+      "source_pages": [
+        47
+      ],
+      "images": [
+        {
+          "file": "page-47.png",
+          "page": 47,
+          "is_primary": true,
+          "alt": "Adjustable Cutouts Stand — fabrication product, catalogue page 47",
+          "sort_order": 0
+        }
+      ],
+      "attributes": [
+        {
+          "name": "Specification (as per catalogue)",
+          "value": "5–10 ft adjustable; 2 pcs"
+        },
+        {
+          "name": "Source PDF",
+          "value": "Fabrication.pdf (page 47)"
+        }
+      ]
+    },
+    {
+      "name": "Balloon Stand",
+      "slug": "balloon-stand",
+      "sku": "ALK-STD-005",
+      "category_slug": "stands",
+      "category_group": "Stands",
+      "price": 800,
+      "sale_price": null,
+      "currency": "INR",
+      "short_description": "Stands · 3 ft; 2 pcs",
+      "description": "Balloon Stand — stands for event, wedding, birthday and party decoration. Size / specification as per catalogue: 3 ft; 2 pcs. Fabricated to order. Custom sizes and finishes available on request.",
+      "dimensions": "3 ft; 2 pcs",
+      "material": null,
+      "colour": null,
+      "finish": null,
+      "weight": null,
+      "product_type": "READY_MADE",
+      "is_customizable": false,
+      "is_quote_only": false,
+      "is_featured": false,
+      "is_active": true,
+      "needs_review": false,
+      "stock_quantity": 25,
+      "low_stock_threshold": 5,
+      "source_pdf": "Fabrication.pdf",
+      "source_pages": [
+        48
+      ],
+      "images": [
+        {
+          "file": "page-48.png",
+          "page": 48,
+          "is_primary": true,
+          "alt": "Balloon Stand — fabrication product, catalogue page 48",
+          "sort_order": 0
+        }
+      ],
+      "attributes": [
+        {
+          "name": "Specification (as per catalogue)",
+          "value": "3 ft; 2 pcs"
+        },
+        {
+          "name": "Source PDF",
+          "value": "Fabrication.pdf (page 48)"
+        }
+      ]
+    },
+    {
+      "name": "Jali Single Layer Stand",
+      "slug": "jali-single-layer-stand",
+      "sku": "ALK-JAL-001",
+      "category_slug": "jali-stands",
+      "category_group": "Jali",
+      "price": null,
+      "sale_price": null,
+      "currency": "INR",
+      "short_description": "Jali Stands · Height adjustable up to 10 ft; width 8 ft; mesh; dismantles in 2 parts; fully dismantlable setup",
+      "description": "Jali Single Layer Stand — jali stands for event, wedding, birthday and party decoration. Size / specification as per catalogue: Height adjustable up to 10 ft; width 8 ft; mesh; dismantles in 2 parts; fully dismantlable setup. Fabricated to order. Custom sizes and finishes available on request.",
+      "dimensions": "Height adjustable up to 10 ft; width 8 ft; mesh; dismantles in 2 parts; fully dismantlable setup",
+      "material": null,
+      "colour": null,
+      "finish": null,
+      "weight": null,
+      "product_type": "QUOTE_ONLY",
+      "is_customizable": true,
+      "is_quote_only": true,
+      "is_featured": false,
+      "is_active": true,
+      "needs_review": false,
+      "stock_quantity": 0,
+      "low_stock_threshold": 5,
+      "source_pdf": "Fabrication.pdf",
+      "source_pages": [
+        49
+      ],
+      "images": [
+        {
+          "file": "page-49.png",
+          "page": 49,
+          "is_primary": true,
+          "alt": "Jali Single Layer Stand — fabrication product, catalogue page 49",
+          "sort_order": 0
+        }
+      ],
+      "attributes": [
+        {
+          "name": "Specification (as per catalogue)",
+          "value": "Height adjustable up to 10 ft; width 8 ft; mesh; dismantles in 2 parts; fully dismantlable setup"
+        },
+        {
+          "name": "Source PDF",
+          "value": "Fabrication.pdf (page 49)"
+        }
+      ]
+    }
+  ]
+}
