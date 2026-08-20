@@ -1,14 +1,14 @@
 -- ============================================================================
--- Alok Traders Akola — COMPLETE SCHEMA (all migrations, in order)
--- Paste this whole file into Supabase → SQL Editor → Run.
--- Generated from supabase/migrations/*.sql — do not edit here; edit the sources.
+-- Alok Traders Akola - COMPLETE SCHEMA (all migrations, in order)
+-- Paste this whole file into Supabase -> SQL Editor -> Run.
+-- Generated from supabase/migrations/*.sql - do not edit here; edit the sources.
 -- ============================================================================
 
 
--- >>>>>>>>>> supabase/migrations/0001_schema.sql <<<<<<<<<<
+-- ========== supabase/migrations/0001_schema.sql ==========
 
 -- ============================================================================
--- Alok Traders Akola — core schema
+-- Alok Traders Akola - core schema
 -- Fabrication & event decoration e-commerce
 -- All monetary amounts are stored in INR rupees (integer-friendly numeric(12,2)).
 -- ============================================================================
@@ -380,7 +380,7 @@ create table if not exists public.custom_fabrication_requests (
 );
 create index if not exists cfr_status_idx on public.custom_fabrication_requests(status);
 
--- >>>>>>>>>> supabase/migrations/0002_functions_triggers.sql <<<<<<<<<<
+-- ========== supabase/migrations/0002_functions_triggers.sql ==========
 
 -- ============================================================================
 -- Functions & triggers
@@ -566,7 +566,7 @@ language sql stable as $$
   where product_id = p_product_id and is_approved = true;
 $$;
 
--- >>>>>>>>>> supabase/migrations/0003_rls.sql <<<<<<<<<<
+-- ========== supabase/migrations/0003_rls.sql ==========
 
 -- ============================================================================
 -- Row Level Security
@@ -746,7 +746,7 @@ create policy cfr_admin_write on public.custom_fabrication_requests
 
 -- webhook_events: service role only (no policies = deny all via anon key) -----
 
--- >>>>>>>>>> supabase/migrations/0004_storage_seed.sql <<<<<<<<<<
+-- ========== supabase/migrations/0004_storage_seed.sql ==========
 
 -- ============================================================================
 -- Storage buckets + baseline seed data (settings, event categories)
@@ -785,7 +785,7 @@ insert into public.site_settings (id, business_name, tagline, description, curre
 values (
   1,
   'Alok Traders Akola',
-  'Fabrication & Event Décor Products',
+  'Fabrication & Event Decor Products',
   'Fabrication structures, event decoration products and custom solutions for weddings, birthdays, parties and events.',
   'INR'
 )
