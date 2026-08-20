@@ -1,5 +1,5 @@
 -- ============================================================================
--- Alok Traders Akola — core schema
+-- Alok Traders Akola - core schema
 -- Fabrication & event decoration e-commerce
 -- All monetary amounts are stored in INR rupees (integer-friendly numeric(12,2)).
 -- ============================================================================

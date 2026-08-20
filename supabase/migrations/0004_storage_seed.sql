@@ -35,7 +35,7 @@ insert into public.site_settings (id, business_name, tagline, description, curre
 values (
   1,
   'Alok Traders Akola',
-  'Fabrication & Event Décor Products',
+  'Fabrication & Event Decor Products',
   'Fabrication structures, event decoration products and custom solutions for weddings, birthdays, parties and events.',
   'INR'
 )

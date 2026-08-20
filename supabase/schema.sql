@@ -1,7 +1,6 @@
 -- ============================================================================
 -- Alok Traders Akola - COMPLETE SCHEMA (all migrations, in order)
 -- Paste this whole file into Supabase -> SQL Editor -> Run.
--- Generated from supabase/migrations/*.sql - do not edit here; edit the sources.
 -- ============================================================================
 
 
