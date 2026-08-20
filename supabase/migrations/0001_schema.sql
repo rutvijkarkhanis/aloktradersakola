@@ -153,9 +153,14 @@ create table if not exists public.inventory (
   reserved   int not null default 0,
   status     text not null default 'MADE_TO_ORDER'
              check (status in ('IN_STOCK','LOW_STOCK','OUT_OF_STOCK','MADE_TO_ORDER','QUOTE_ONLY')),
-  updated_at timestamptz not null default now(),
-  unique (product_id, variant_id)
+  updated_at timestamptz not null default now()
 );
+-- NULL variant_id must still be unique per product (NULLs are distinct to a
+-- plain UNIQUE constraint), so use partial unique indexes.
+create unique index if not exists inventory_product_novariant_uniq
+  on public.inventory(product_id) where variant_id is null;
+create unique index if not exists inventory_product_variant_uniq
+  on public.inventory(product_id, variant_id) where variant_id is not null;
 
 -- ---------------------------------------------------------------------------
 -- Product attributes (spec key/value), tags, event category links

@@ -140,12 +140,15 @@ begin
     new_status := 'IN_STOCK';
   end if;
 
-  insert into public.inventory (product_id, quantity, status, updated_at)
-  values (new.id, greatest(new.stock_quantity, 0), new_status, now())
-  on conflict (product_id, variant_id) do update
-    set quantity = greatest(new.stock_quantity, 0),
-        status = new_status,
-        updated_at = now();
+  -- Update-or-insert the product-level (variant_id IS NULL) inventory row.
+  -- Can't rely on ON CONFLICT because variant_id is nullable.
+  update public.inventory
+     set quantity = greatest(new.stock_quantity, 0), status = new_status, updated_at = now()
+   where product_id = new.id and variant_id is null;
+  if not found then
+    insert into public.inventory (product_id, variant_id, quantity, status, updated_at)
+    values (new.id, null, greatest(new.stock_quantity, 0), new_status, now());
+  end if;
   return new;
 end $$;
 drop trigger if exists sync_inventory_status on public.products;
