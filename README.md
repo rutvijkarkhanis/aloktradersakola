@@ -46,8 +46,13 @@ secrets.
 
 ## 4. Database setup
 
-Apply the migrations in `supabase/migrations/` **in order**. Either use the
-Supabase SQL editor (paste each file) or the Supabase CLI:
+**Fastest:** open Supabase → **SQL Editor** → paste the entire
+`supabase/schema.sql` (all migrations concatenated in order) → **Run**. This is
+validated to apply cleanly in one shot (19 tables, RLS on all, both storage
+buckets).
+
+Or apply the individual migrations in `supabase/migrations/` **in order** via the
+SQL editor or the Supabase CLI:
 
 ```bash
 # Option A — Supabase CLI (recommended)
