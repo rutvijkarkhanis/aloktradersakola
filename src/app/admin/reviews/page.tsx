@@ -10,7 +10,7 @@ export default async function AdminReviewsPage() {
   const supabase = createClient();
   const { data: reviews } = await supabase
     .from("reviews")
-    .select("*, product:products(name, slug), profile:profiles(full_name)")
+    .select("*, product:products!reviews_product_id_fkey(name, slug)")
     .order("created_at", { ascending: false });
 
   return (

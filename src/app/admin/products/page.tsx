@@ -13,7 +13,7 @@ export default async function AdminProductsPage({ searchParams }: { searchParams
   const supabase = createClient();
   let query = supabase
     .from("products")
-    .select("*, category:categories(name), images:product_images(url, is_primary)")
+    .select("*, category:categories!products_category_id_fkey(name), images:product_images(url, is_primary)")
     .order("created_at", { ascending: false });
   if (searchParams.q) query = query.ilike("name", `%${searchParams.q}%`);
   const { data: products } = await query;

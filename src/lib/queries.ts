@@ -9,7 +9,11 @@ import type {
   ProductFull,
 } from "@/lib/types/database";
 
-const LIST_SELECT = "*, category:categories(*), images:product_images(*)";
+// Disambiguate the category embed: products relate to categories via BOTH the
+// category_id FK and the product_event_categories junction, so PostgREST needs
+// the explicit FK name (PGRST201 otherwise).
+const LIST_SELECT =
+  "*, category:categories!products_category_id_fkey(*), images:product_images(*)";
 
 // Nested selects (images:product_images(*)) aren't typed by supabase-js without
 // full Relationships metadata, so these read helpers accept the raw row and
@@ -173,7 +177,9 @@ export async function getProductBySlug(slug: string): Promise<ProductFull | null
   const supabase = createClient();
   const { data } = await supabase
     .from("products")
-    .select("*, category:categories(*), images:product_images(*), attributes:product_attributes(*)")
+    .select(
+      "*, category:categories!products_category_id_fkey(*), images:product_images(*), attributes:product_attributes(*)",
+    )
     .eq("slug", slug)
     .maybeSingle();
   if (!data) return null;
@@ -218,7 +224,7 @@ export async function getApprovedReviews(productId: string) {
   const supabase = createClient();
   const { data } = await supabase
     .from("reviews")
-    .select("*, profile:profiles(full_name)")
+    .select("*")
     .eq("product_id", productId)
     .eq("is_approved", true)
     .order("created_at", { ascending: false });
