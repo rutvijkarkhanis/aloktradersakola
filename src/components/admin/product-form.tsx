@@ -36,6 +36,7 @@ export function ProductForm({ categories, product }: { categories: Category[]; p
       description: String(fd.get("description") || ""),
       price: quoteOnly ? null : Number(fd.get("price") || 0),
       sale_price: fd.get("sale_price") ? Number(fd.get("sale_price")) : null,
+      delivery_charge: fd.get("delivery_charge") ? Number(fd.get("delivery_charge")) : null,
       stock_quantity: Number(fd.get("stock_quantity") || 0),
       low_stock_threshold: Number(fd.get("low_stock_threshold") || 5),
       material: String(fd.get("material") || ""),
@@ -149,6 +150,9 @@ export function ProductForm({ categories, product }: { categories: Category[]; p
             <select name="product_type" defaultValue={product?.product_type ?? "READY_MADE"} className="flex h-10 w-full rounded-md border border-input bg-background px-3 text-sm">
               {PRODUCT_TYPES.map((t) => <option key={t} value={t}>{t.replaceAll("_", " ")}</option>)}
             </select>
+          </F>
+          <F label="Delivery charge (₹) — per unit, blank = site default">
+            <Input name="delivery_charge" type="number" min={0} step="1" defaultValue={product?.delivery_charge ?? ""} />
           </F>
         </Card>
 

@@ -1,10 +1,17 @@
 import { formatINR } from "@/lib/utils";
+import { BUSINESS, waNumber } from "@/lib/business";
 
 export function whatsappHref(number: string | null | undefined, message: string): string | null {
-  if (!number) return null;
-  const clean = number.replace(/[^0-9]/g, "");
+  // Fall back to the business primary WhatsApp when settings doesn't set one.
+  const raw = number || BUSINESS.primaryWhatsapp;
+  const clean = waNumber(raw);
   if (!clean) return null;
   return `https://wa.me/${clean}?text=${encodeURIComponent(message)}`;
+}
+
+/** Build a wa.me link for a specific local number with a message. */
+export function whatsappHrefFor(localNumber: string, message: string): string {
+  return `https://wa.me/${waNumber(localNumber)}?text=${encodeURIComponent(message)}`;
 }
 
 export function productEnquiryMessage(p: {

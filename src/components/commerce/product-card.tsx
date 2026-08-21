@@ -78,6 +78,7 @@ export function ProductCard({ product }: { product: ProductWithImages }) {
                   salePrice: product.sale_price,
                   image: img?.url ?? null,
                   stock: product.stock_quantity,
+                  deliveryCharge: product.delivery_charge,
                 }}
               />
             </>

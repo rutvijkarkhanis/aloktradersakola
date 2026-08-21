@@ -13,6 +13,7 @@ export type CartLine = {
   image: string | null;
   quantity: number;
   stock: number; // 0 => made to order (no hard cap)
+  deliveryCharge?: number | null; // per-unit delivery charge (INR)
 };
 
 type CartState = {

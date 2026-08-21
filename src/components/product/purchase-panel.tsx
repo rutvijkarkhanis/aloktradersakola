@@ -37,6 +37,7 @@ export function PurchasePanel({
     salePrice: product.sale_price,
     image: primary?.url ?? null,
     stock: product.stock_quantity,
+    deliveryCharge: product.delivery_charge,
   };
 
   return (

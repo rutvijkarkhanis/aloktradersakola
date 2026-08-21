@@ -1,7 +1,8 @@
 import Link from "next/link";
-import { Instagram, Facebook, MessageCircle, Mail, MapPin, Phone } from "lucide-react";
+import { Instagram, Facebook, MessageCircle, MapPin } from "lucide-react";
 import type { Category, SiteSettings } from "@/lib/types/database";
 import { whatsappHref } from "@/lib/whatsapp";
+import { BUSINESS } from "@/lib/business";
 
 export function SiteFooter({
   settings,
@@ -27,18 +28,16 @@ export function SiteFooter({
             {settings?.description ||
               "Fabrication structures, event decoration products and custom solutions for weddings, birthdays, parties and events."}
           </p>
-          <div className="mt-4 space-y-2 text-sm text-muted-foreground">
-            {settings?.address && (
-              <p className="flex items-start gap-2"><MapPin className="mt-0.5 h-4 w-4 shrink-0" /> {settings.address}</p>
-            )}
-            {settings?.phone && (
-              <a href={`tel:${settings.phone}`} className="flex items-center gap-2 hover:text-foreground">
-                <Phone className="h-4 w-4" /> {settings.phone}
+          <div className="mt-4 space-y-3 text-sm text-muted-foreground">
+            {BUSINESS.branches.map((b) => (
+              <a key={b.name} href={b.mapUrl} target="_blank" rel="noopener" className="flex items-start gap-2 hover:text-foreground">
+                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-brand" />
+                <span><span className="font-medium text-foreground">{b.name}:</span> {b.address}</span>
               </a>
-            )}
-            {settings?.email && (
-              <a href={`mailto:${settings.email}`} className="flex items-center gap-2 hover:text-foreground">
-                <Mail className="h-4 w-4" /> {settings.email}
+            ))}
+            {wa && (
+              <a href={wa} target="_blank" rel="noopener" className="flex items-center gap-2 hover:text-foreground">
+                <MessageCircle className="h-4 w-4 text-brand" /> WhatsApp us
               </a>
             )}
           </div>

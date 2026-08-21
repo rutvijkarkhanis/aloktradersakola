@@ -54,6 +54,26 @@ export default async function OrderDetailPage({ params }: { params: { id: string
         </div>
       </div>
 
+      {/* Tracking */}
+      {o.tracking_number && (
+        <div className="mt-4 flex flex-wrap items-center justify-between gap-3 rounded-lg border border-brand/30 bg-accent/40 p-4">
+          <div className="text-sm">
+            <span className="font-semibold">{o.courier || "Courier"}</span> · Tracking&nbsp;
+            <span className="font-mono">{o.tracking_number}</span>
+          </div>
+          {o.tracking_url && (
+            <a
+              href={o.tracking_url}
+              target="_blank"
+              rel="noopener"
+              className="inline-flex items-center gap-1 rounded-md bg-brand px-3 py-1.5 text-sm font-medium text-brand-foreground hover:bg-brand/90"
+            >
+              Track package →
+            </a>
+          )}
+        </div>
+      )}
+
       {/* Status timeline */}
       {!cancelled && (
         <div className="mt-6 rounded-lg border bg-card p-5">

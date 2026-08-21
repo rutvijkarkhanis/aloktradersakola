@@ -78,6 +78,7 @@ export type Product = {
   is_featured: boolean;
   is_quote_only: boolean;
   needs_review: boolean;
+  delivery_charge: number | null;
   source_pdf: string | null;
   source_pages: number[] | null;
   seo_title: string | null;
@@ -214,6 +215,9 @@ export type Order = {
   customer_notes: string | null;
   contact_email: string | null;
   contact_mobile: string | null;
+  courier: string | null;
+  tracking_number: string | null;
+  tracking_url: string | null;
   created_at: string;
   updated_at: string;
 }

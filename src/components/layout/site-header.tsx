@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import {
-  Menu, Search, ShoppingCart, Heart, User, Phone, MessageCircle, ChevronDown,
+  Menu, Search, ShoppingCart, Heart, User, MessageCircle, ChevronDown,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -69,14 +69,9 @@ export function SiteHeader({
         <div className="container-wide flex h-9 items-center justify-between text-xs sm:text-[13px]">
           <span className="truncate">Fabrication & Event Décor · Ready-made & custom · Bulk orders welcome</span>
           <div className="hidden items-center gap-4 sm:flex">
-            {settings?.phone && (
-              <a href={`tel:${settings.phone}`} className="flex items-center gap-1 hover:underline">
-                <Phone className="h-3.5 w-3.5" /> {settings.phone}
-              </a>
-            )}
             {wa && (
               <a href={wa} target="_blank" rel="noopener" className="flex items-center gap-1 hover:underline">
-                <MessageCircle className="h-3.5 w-3.5" /> WhatsApp
+                <MessageCircle className="h-3.5 w-3.5" /> WhatsApp us
               </a>
             )}
           </div>

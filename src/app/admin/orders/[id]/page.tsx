@@ -5,6 +5,7 @@ import { createClient } from "@/lib/supabase/server";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { OrderStatusControl } from "@/components/admin/order-status-control";
+import { TrackingControl } from "@/components/admin/tracking-control";
 import { formatINR, formatDateTime } from "@/lib/utils";
 import { PAYMENT_STATUS_LABELS } from "@/lib/constants";
 
@@ -77,6 +78,10 @@ export default async function AdminOrderDetail({ params }: { params: { id: strin
           <div className="rounded-lg border bg-card p-4">
             <h2 className="mb-3 text-sm font-semibold">Manage</h2>
             <OrderStatusControl orderId={o.id} current={o.order_status} currentCod={o.cod_status} isCod={isCod} />
+          </div>
+          <div className="rounded-lg border bg-card p-4">
+            <h2 className="mb-3 flex items-center gap-2 text-sm font-semibold">Shipment Tracking</h2>
+            <TrackingControl orderId={o.id} courier={o.courier} trackingNumber={o.tracking_number} trackingUrl={o.tracking_url} />
           </div>
           <div className="rounded-lg border bg-card p-4 text-sm">
             <h2 className="mb-2 font-semibold">Summary</h2>

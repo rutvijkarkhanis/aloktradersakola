@@ -17,7 +17,7 @@ import { Badge } from "@/components/ui/badge";
 import { toast } from "@/components/ui/sonner";
 import { useCart } from "@/lib/store/cart";
 import { formatINR, cn } from "@/lib/utils";
-import { computeTotalsWithDiscount } from "@/lib/pricing";
+import { computeTotalsWithDiscount, perProductDelivery } from "@/lib/pricing";
 import { INDIAN_STATES } from "@/lib/constants";
 import { createOrder, validateCoupon, verifyPayment, confirmTestPayment } from "@/app/actions/orders";
 import type { SiteSettings, Address } from "@/lib/types/database";
@@ -93,9 +93,20 @@ export function CheckoutClient({
     () => lines.reduce((s, l) => s + (l.salePrice && l.salePrice < l.price ? l.salePrice : l.price) * l.quantity, 0),
     [lines],
   );
+  const delivery = useMemo(
+    () => perProductDelivery(lines.map((l) => ({ delivery_charge: l.deliveryCharge, quantity: l.quantity }))),
+    [lines],
+  );
   const totals = useMemo(
-    () => computeTotalsWithDiscount(subtotal, coupon?.discount ?? 0, settings, paymentType),
-    [subtotal, coupon, settings, paymentType],
+    () =>
+      computeTotalsWithDiscount(
+        subtotal,
+        coupon?.discount ?? 0,
+        settings,
+        paymentType,
+        delivery > 0 ? delivery : undefined,
+      ),
+    [subtotal, coupon, settings, paymentType, delivery],
   );
 
   useEffect(() => {

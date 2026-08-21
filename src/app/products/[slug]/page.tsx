@@ -209,6 +209,11 @@ export default async function ProductPage({ params }: { params: { slug: string }
             <AccordionItem value="delivery">
               <AccordionTrigger>Delivery Information</AccordionTrigger>
               <AccordionContent>
+                {product.delivery_charge != null && product.delivery_charge > 0 ? (
+                  <p className="mb-2 font-medium text-foreground">
+                    Delivery: ₹{product.delivery_charge} per unit (shipped via Delhivery).
+                  </p>
+                ) : null}
                 Ready-made items are dispatched after order confirmation; made-to-order and custom pieces are
                 fabricated to schedule. Delivery charges (if any) are shown at checkout. See our{" "}
                 <Link href="/shipping-policy" className="text-brand underline">Shipping Policy</Link>.

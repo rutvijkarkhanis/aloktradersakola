@@ -9,7 +9,13 @@ export type PricedLine = {
   unit_price: number;
   quantity: number;
   line_total: number;
+  delivery_charge?: number | null; // per-unit; null => contributes to flat-fee fallback
 };
+
+/** Sum of per-product delivery charges (per unit x qty). 0 if none set. */
+export function perProductDelivery(lines: { delivery_charge?: number | null; quantity: number }[]): number {
+  return lines.reduce((s, l) => s + (Number(l.delivery_charge ?? 0) * l.quantity), 0);
+}
 
 export type OrderTotals = {
   subtotal: number;
@@ -44,19 +50,34 @@ export function computeTotals(
 ): OrderTotals {
   const subtotal = lines.reduce((s, l) => s + l.line_total, 0);
   const discount = couponDiscount(coupon, subtotal);
-  return computeTotalsWithDiscount(subtotal, discount, settings, paymentType);
+  const perProduct = perProductDelivery(lines);
+  return computeTotalsWithDiscount(
+    subtotal,
+    discount,
+    settings,
+    paymentType,
+    perProduct > 0 ? perProduct : undefined,
+  );
 }
 
-/** Same money math but from an already-resolved subtotal + discount (UI display). */
+/**
+ * Same money math but from an already-resolved subtotal + discount (UI display).
+ * deliveryOverride: sum of per-product delivery charges; when > 0 it replaces the
+ * site flat fee. Free-delivery threshold still applies to either.
+ */
 export function computeTotalsWithDiscount(
   subtotal: number,
   discount: number,
   settings: SiteSettings,
   paymentType: PaymentType,
+  deliveryOverride?: number,
 ): OrderTotals {
   const taxable = Math.max(subtotal - discount, 0);
 
-  let delivery_charge = Number(settings.delivery_flat_fee) || 0;
+  let delivery_charge =
+    deliveryOverride != null && deliveryOverride > 0
+      ? deliveryOverride
+      : Number(settings.delivery_flat_fee) || 0;
   if (
     settings.free_delivery_threshold != null &&
     taxable >= Number(settings.free_delivery_threshold)

@@ -1,11 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Checkbox } from "@/components/ui/checkbox";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
 import { AVAILABILITY_OPTIONS, PRODUCT_TYPES } from "@/lib/constants";
 import type { Category } from "@/lib/types/database";
@@ -38,7 +37,7 @@ export function ShopFilters({
   const parents = categories.filter((c) => !c.parent_id);
   const childrenOf = (id: string) => categories.filter((c) => c.parent_id === id);
 
-  function apply() {
+  function buildUrl() {
     const sp = new URLSearchParams();
     const q = params.get("q");
     const sort = params.get("sort");
@@ -53,9 +52,23 @@ export function ShopFilters({
     if (productType) sp.set("productType", productType);
     if (material) sp.set("material", material);
     if (colour) sp.set("colour", colour);
-    router.push(`/shop?${sp.toString()}`);
-    onApplied?.();
+    return `/shop?${sp.toString()}`;
   }
+
+  // Auto-apply on change (debounced so typing prices doesn't spam navigation).
+  const firstRender = useRef(true);
+  useEffect(() => {
+    if (firstRender.current) {
+      firstRender.current = false;
+      return;
+    }
+    const t = setTimeout(() => {
+      router.push(buildUrl());
+      onApplied?.();
+    }, 250);
+    return () => clearTimeout(t);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [category, minPrice, maxPrice, availability, productType, material, colour]);
 
   function clear() {
     setCategory(""); setMinPrice(""); setMaxPrice(""); setAvailability("");
@@ -63,6 +76,8 @@ export function ShopFilters({
     router.push("/shop");
     onApplied?.();
   }
+
+  const hasFilters = category || minPrice || maxPrice || availability || productType || material || colour;
 
   return (
     <div className="space-y-1">
@@ -154,10 +169,11 @@ export function ShopFilters({
         </AccordionItem>
       </Accordion>
 
-      <div className="flex gap-2 pt-3">
-        <Button onClick={apply} variant="brand" className="flex-1">Apply</Button>
-        <Button onClick={clear} variant="outline">Clear</Button>
-      </div>
+      {hasFilters && (
+        <div className="pt-3">
+          <Button onClick={clear} variant="outline" className="w-full">Clear all filters</Button>
+        </div>
+      )}
     </div>
   );
 }

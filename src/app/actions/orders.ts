@@ -8,6 +8,7 @@ import { computeTotals, couponDiscount, type PricedLine } from "@/lib/pricing";
 import {
   isRazorpayConfigured, createRazorpayOrder, verifyPaymentSignature, toPaise, RZP_PUBLIC_KEY_ID,
 } from "@/lib/razorpay";
+import { sendOrderConfirmation, sendAdminNewOrder } from "@/lib/email";
 import type { Coupon } from "@/lib/types/database";
 
 const addressSchema = z.object({
@@ -78,7 +79,7 @@ export async function createOrder(input: unknown): Promise<CreateOrderResult> {
   const ids = items.map((i) => i.productId);
   const { data: products, error: prodErr } = await admin
     .from("products")
-    .select("id, name, sku, price, sale_price, is_quote_only, product_type, stock_quantity, is_active")
+    .select("id, name, sku, price, sale_price, is_quote_only, product_type, stock_quantity, is_active, delivery_charge")
     .in("id", ids);
   if (prodErr) return { ok: false, error: "Could not load products." };
 
@@ -98,6 +99,7 @@ export async function createOrder(input: unknown): Promise<CreateOrderResult> {
       product_id: p.id, product_name: p.name, sku: p.sku,
       image_url: img?.url ?? null, unit_price: unit, quantity: item.quantity,
       line_total: unit * item.quantity,
+      delivery_charge: (p as any).delivery_charge ?? null,
     });
   }
 
@@ -238,7 +240,10 @@ export async function finalizePaidOrder(orderId: string, gatewayOrderId: string,
     .eq("id", orderId);
 
   // Decrement stock for tracked products
-  const { data: items } = await admin.from("order_items").select("product_id, quantity").eq("order_id", orderId);
+  const { data: items } = await admin
+    .from("order_items")
+    .select("product_id, quantity, product_name, line_total")
+    .eq("order_id", orderId);
   for (const it of items ?? []) {
     if (it.product_id) await admin.rpc("decrement_stock", { p_product_id: it.product_id, p_qty: it.quantity });
   }
@@ -247,6 +252,27 @@ export async function finalizePaidOrder(orderId: string, gatewayOrderId: string,
   if (order.coupon_code) {
     const { data: c } = await admin.from("coupons").select("id, used_count").eq("code", order.coupon_code).maybeSingle();
     if (c) await admin.from("coupons").update({ used_count: c.used_count + 1 }).eq("id", c.id);
+  }
+
+  // Notifications (best-effort; never fail the order)
+  try {
+    const payload = {
+      order_number: order.order_number,
+      total_amount: Number(order.total_amount),
+      advance_paid: isFull ? Number(order.total_amount) : Number(order.advance_required),
+      cod_amount: Number(order.cod_amount),
+      payment_type: order.payment_type,
+      contact_email: order.contact_email,
+      contact_mobile: order.contact_mobile,
+      items: (items ?? []).map((it: any) => ({
+        product_name: it.product_name ?? "Item",
+        quantity: it.quantity ?? 1,
+        line_total: Number(it.line_total ?? 0),
+      })),
+    };
+    await Promise.allSettled([sendOrderConfirmation(payload as any), sendAdminNewOrder(payload as any)]);
+  } catch (e) {
+    console.error("order email error", e);
   }
   return { ok: true };
 }

@@ -23,6 +23,7 @@ const productSchema = z.object({
   description: z.string().optional(),
   price: z.coerce.number().nonnegative().nullable().optional(),
   sale_price: z.coerce.number().nonnegative().nullable().optional(),
+  delivery_charge: z.coerce.number().nonnegative().nullable().optional(),
   stock_quantity: z.coerce.number().int().min(0),
   low_stock_threshold: z.coerce.number().int().min(0),
   material: z.string().optional(),
@@ -52,6 +53,7 @@ export async function upsertProduct(input: unknown) {
     description: d.description || null,
     price: d.is_quote_only ? null : d.price ?? null,
     sale_price: d.sale_price ?? null,
+    delivery_charge: d.delivery_charge ?? null,
     stock_quantity: d.stock_quantity,
     low_stock_threshold: d.low_stock_threshold,
     material: d.material || null,
@@ -120,6 +122,38 @@ export async function updateOrderStatus(id: string, order_status: string, cod_st
   const { error } = await admin.from("orders").update(patch).eq("id", id);
   revalidatePath(`/admin/orders/${id}`);
   revalidatePath("/admin/orders");
+  return { ok: !error, error: error?.message };
+}
+
+/** Delhivery public tracking URL from a waybill number. */
+function delhiveryTrackingUrl(waybill: string) {
+  return `https://www.delhivery.com/track/package/${encodeURIComponent(waybill.trim())}`;
+}
+
+export async function updateOrderTracking(
+  id: string,
+  input: { courier?: string; tracking_number?: string; tracking_url?: string },
+) {
+  await assertAdmin();
+  const admin = createAdminClient();
+  const courier = (input.courier || "Delhivery").trim();
+  const waybill = (input.tracking_number || "").trim();
+  let tracking_url = (input.tracking_url || "").trim();
+  if (!tracking_url && waybill && /delhivery/i.test(courier)) {
+    tracking_url = delhiveryTrackingUrl(waybill);
+  }
+  const patch: any = {
+    courier: courier || null,
+    tracking_number: waybill || null,
+    tracking_url: tracking_url || null,
+  };
+  // Advance status to SHIPPED when a waybill is first added and still processing.
+  const { data: order } = await admin.from("orders").select("order_status").eq("id", id).maybeSingle();
+  if (waybill && order && ["PAYMENT_CONFIRMED", "PROCESSING", "FABRICATION", "READY"].includes(order.order_status)) {
+    patch.order_status = "SHIPPED";
+  }
+  const { error } = await admin.from("orders").update(patch).eq("id", id);
+  revalidatePath(`/admin/orders/${id}`);
   return { ok: !error, error: error?.message };
 }
 

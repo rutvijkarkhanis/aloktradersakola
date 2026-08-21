@@ -3,6 +3,7 @@
 import { z } from "zod";
 import { createClient } from "@/lib/supabase/server";
 import { createAdminClient } from "@/lib/supabase/admin";
+import { sendAdminFabricationEnquiry } from "@/lib/email";
 
 const schema = z.object({
   name: z.string().min(2, "Enter your name"),
@@ -56,5 +57,17 @@ export async function submitFabricationRequest(input: unknown): Promise<{ ok: bo
     .single();
 
   if (error || !data) return { ok: false, error: "Could not submit your enquiry. Please try again." };
+
+  try {
+    await sendAdminFabricationEnquiry({
+      request_number: data.request_number,
+      name: d.name,
+      phone: d.phone,
+      product_required: d.product_required || null,
+      event_type: d.event_type || null,
+    });
+  } catch (e) {
+    console.error("fabrication email error", e);
+  }
   return { ok: true, requestNumber: data.request_number };
 }
