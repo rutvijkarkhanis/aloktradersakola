@@ -125,9 +125,19 @@ export async function updateOrderStatus(id: string, order_status: string, cod_st
   return { ok: !error, error: error?.message };
 }
 
-/** Delhivery public tracking URL from a waybill number. */
-function delhiveryTrackingUrl(waybill: string) {
-  return `https://www.delhivery.com/track/package/${encodeURIComponent(waybill.trim())}`;
+/**
+ * Build a live tracking URL from the courier + waybill.
+ * Big Ship is an aggregator that dispatches via Delhivery, so the AWB it
+ * issues is a real Delhivery waybill and the Delhivery tracking page shows
+ * live status. Big Ship's own portal page is kept as a fallback option.
+ */
+function courierTrackingUrl(courier: string, waybill: string): string {
+  const awb = encodeURIComponent(waybill.trim());
+  const c = courier.toLowerCase();
+  if (c.includes("delhivery") || c.includes("big ship") || c.includes("bigship")) {
+    return `https://www.delhivery.com/track/package/${awb}`;
+  }
+  return "";
 }
 
 export async function updateOrderTracking(
@@ -136,11 +146,12 @@ export async function updateOrderTracking(
 ) {
   await assertAdmin();
   const admin = createAdminClient();
-  const courier = (input.courier || "Delhivery").trim();
+  const courier = (input.courier || "Big Ship (Delhivery)").trim();
   const waybill = (input.tracking_number || "").trim();
+  // Explicit URL (e.g. "Other" courier) wins; otherwise derive from courier.
   let tracking_url = (input.tracking_url || "").trim();
-  if (!tracking_url && waybill && /delhivery/i.test(courier)) {
-    tracking_url = delhiveryTrackingUrl(waybill);
+  if (!tracking_url && waybill) {
+    tracking_url = courierTrackingUrl(courier, waybill);
   }
   const patch: any = {
     courier: courier || null,
