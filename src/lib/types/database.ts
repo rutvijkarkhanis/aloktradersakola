@@ -218,6 +218,10 @@ export type Order = {
   courier: string | null;
   tracking_number: string | null;
   tracking_url: string | null;
+  bigship_order_id: string | null;
+  shipping_label_url: string | null;
+  tracking_status: string | null;
+  tracking_synced_at: string | null;
   created_at: string;
   updated_at: string;
 }
