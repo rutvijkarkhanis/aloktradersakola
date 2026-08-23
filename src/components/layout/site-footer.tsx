@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Instagram, Facebook, MessageCircle, MapPin } from "lucide-react";
 import type { Category, SiteSettings } from "@/lib/types/database";
 import { whatsappHref } from "@/lib/whatsapp";
@@ -11,6 +14,8 @@ export function SiteFooter({
   settings: SiteSettings | null;
   categories: Category[];
 }) {
+  const pathname = usePathname();
+  if (pathname?.startsWith("/admin")) return null;
   const name = settings?.business_name || "Alok Traders Akola";
   const parents = categories.filter((c) => !c.parent_id).slice(0, 6);
   const wa = whatsappHref(settings?.whatsapp_number, "Hello Alok Traders Akola");

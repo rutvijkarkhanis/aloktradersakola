@@ -37,18 +37,29 @@ export function SiteHeader({
 }) {
   const router = useRouter();
   const pathname = usePathname();
+  const isAdminArea = pathname?.startsWith("/admin") ?? false;
   const [q, setQ] = useState("");
   const [mounted, setMounted] = useState(false);
   const [email, setEmail] = useState<string | null>(null);
+  const [isAdmin, setIsAdmin] = useState(false);
   const count = useCart((s) => s.count());
 
   useEffect(() => setMounted(true), []);
   useEffect(() => {
     const supabase = createClient();
-    supabase.auth.getUser().then(({ data }) => setEmail(data.user?.email ?? null));
-    const { data: sub } = supabase.auth.onAuthStateChange((_e, session) =>
-      setEmail(session?.user?.email ?? null),
-    );
+    const loadRole = async (uid: string | null) => {
+      if (!uid) return setIsAdmin(false);
+      const { data } = await supabase.from("profiles").select("role").eq("id", uid).maybeSingle();
+      setIsAdmin(data?.role === "admin");
+    };
+    supabase.auth.getUser().then(({ data }) => {
+      setEmail(data.user?.email ?? null);
+      loadRole(data.user?.id ?? null);
+    });
+    const { data: sub } = supabase.auth.onAuthStateChange((_e, session) => {
+      setEmail(session?.user?.email ?? null);
+      loadRole(session?.user?.id ?? null);
+    });
     return () => sub.subscription.unsubscribe();
   }, []);
 
@@ -65,6 +76,7 @@ export function SiteHeader({
   return (
     <header className="sticky top-0 z-40 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
       {/* Announcement bar */}
+      {!isAdminArea && (
       <div className="bg-primary text-primary-foreground">
         <div className="container-wide flex h-9 items-center justify-between text-xs sm:text-[13px]">
           <span className="truncate">Fabrication & Event Décor · Ready-made & custom · Bulk orders welcome</span>
@@ -77,10 +89,12 @@ export function SiteHeader({
           </div>
         </div>
       </div>
+      )}
 
       {/* Main header */}
       <div className="container-wide flex h-16 items-center gap-3">
         {/* Mobile menu */}
+        {!isAdminArea && (
         <Sheet>
           <SheetTrigger asChild>
             <Button variant="ghost" size="icon" className="lg:hidden" aria-label="Menu">
@@ -119,6 +133,7 @@ export function SiteHeader({
             </nav>
           </SheetContent>
         </Sheet>
+        )}
 
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 shrink-0">
@@ -133,7 +148,14 @@ export function SiteHeader({
           <span className="hidden text-base font-bold tracking-tight sm:block">{businessName}</span>
         </Link>
 
+        {isAdminArea && (
+          <span className="ml-2 hidden rounded-md bg-secondary px-2 py-1 text-xs font-semibold uppercase tracking-wide text-muted-foreground sm:inline-block">
+            Admin
+          </span>
+        )}
+
         {/* Desktop nav */}
+        {!isAdminArea && (
         <nav className="hidden items-center gap-1 lg:flex">
           <Link
             href="/shop"
@@ -176,8 +198,10 @@ export function SiteHeader({
             </Link>
           ))}
         </nav>
+        )}
 
         {/* Search (desktop) */}
+        {!isAdminArea && (
         <form onSubmit={onSearch} className="ml-auto hidden max-w-xs flex-1 md:flex">
           <div className="relative w-full">
             <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
@@ -190,12 +214,15 @@ export function SiteHeader({
             />
           </div>
         </form>
+        )}
 
         {/* Actions */}
         <div className="ml-auto flex items-center gap-0.5 md:ml-2">
+          {!isAdminArea && (
           <Button variant="ghost" size="icon" asChild className="md:hidden" aria-label="Search">
             <Link href="/shop"><Search className="h-5 w-5" /></Link>
           </Button>
+          )}
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="ghost" size="icon" aria-label="Account"><User className="h-5 w-5" /></Button>
@@ -205,6 +232,14 @@ export function SiteHeader({
                 <>
                   <DropdownMenuLabel className="truncate">{email}</DropdownMenuLabel>
                   <DropdownMenuSeparator />
+                  {isAdmin && (
+                    <>
+                      <DropdownMenuItem asChild>
+                        <Link href="/admin" className="font-semibold text-brand">Admin Panel</Link>
+                      </DropdownMenuItem>
+                      <DropdownMenuSeparator />
+                    </>
+                  )}
                   <DropdownMenuItem asChild><Link href="/account">My Account</Link></DropdownMenuItem>
                   <DropdownMenuItem asChild><Link href="/account/orders">My Orders</Link></DropdownMenuItem>
                   <DropdownMenuItem asChild><Link href="/account/wishlist">Wishlist</Link></DropdownMenuItem>
@@ -220,9 +255,12 @@ export function SiteHeader({
               )}
             </DropdownMenuContent>
           </DropdownMenu>
+          {!isAdminArea && (
           <Button variant="ghost" size="icon" asChild aria-label="Wishlist">
             <Link href="/account/wishlist"><Heart className="h-5 w-5" /></Link>
           </Button>
+          )}
+          {!isAdminArea && (
           <Button variant="ghost" size="icon" asChild aria-label="Cart" className="relative">
             <Link href="/cart">
               <ShoppingCart className="h-5 w-5" />
@@ -233,6 +271,12 @@ export function SiteHeader({
               )}
             </Link>
           </Button>
+          )}
+          {isAdminArea && (
+            <Button variant="outline" size="sm" asChild className="ml-1">
+              <Link href="/">View store</Link>
+            </Button>
+          )}
         </div>
       </div>
     </header>
