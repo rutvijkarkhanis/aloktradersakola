@@ -63,6 +63,7 @@ export function SiteFooter({
           <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
             <li><Link href="/about" className="hover:text-foreground">About Us</Link></li>
             <li><Link href="/custom-fabrication" className="hover:text-foreground">Custom Fabrication</Link></li>
+            <li><Link href="/track" className="hover:text-foreground">Track Order</Link></li>
             <li><Link href="/contact" className="hover:text-foreground">Contact</Link></li>
             {wa && <li><a href={wa} target="_blank" rel="noopener" className="hover:text-foreground">WhatsApp Enquiry</a></li>}
           </ul>
