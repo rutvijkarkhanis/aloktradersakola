@@ -117,6 +117,7 @@ export type BigshipOrderInput = {
   consignee: BigshipConsignee;
   box: { length?: number; breadth?: number; height?: number; weightKg: number };
   products: BigshipProduct[];
+  warehouseId?: string;        // pickup warehouse; falls back to BIGSHIP_WAREHOUSE_ID
 };
 
 export type BigshipRate = { courierId: string | number; courierName: string; total?: string | number; tat?: string | number };
@@ -132,10 +133,11 @@ const PAYMENT_MODE_ID = { PREPAID: 1, COD: 2 } as const;
 /** Step 1 — create a draft order. Returns Big Ship's CustomGlobalOrderId. */
 async function createDraftOrder(input: BigshipOrderInput): Promise<string> {
   const nowUtc = new Date().toISOString().slice(0, 19).replace("T", " "); // Y-m-d H:i:s
+  const pickupId = Number(input.warehouseId || WAREHOUSE_ID);
   const payload = {
     segment_type: SEGMENT,
-    MasterOrderPickUpLocation: Number(WAREHOUSE_ID),
-    MasterOrderReturnLocation: Number(WAREHOUSE_ID),
+    MasterOrderPickUpLocation: pickupId,
+    MasterOrderReturnLocation: pickupId,
     MasterOrderDate: nowUtc,
     MasterOrderPaymentMode: PAYMENT_MODE_ID[input.paymentMode],
     OrderInvoiceNo: input.orderNumber,

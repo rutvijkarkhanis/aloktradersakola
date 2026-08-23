@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { toast } from "@/components/ui/sonner";
 import { bookBigshipShipment, refreshBigshipTracking, cancelBigshipShipment } from "@/app/actions/shipping";
+import { SHIPPING_WAREHOUSES } from "@/lib/business";
 
 export function BigshipControl({
   orderId, bigshipOrderId, awb, courier, trackingUrl, labelUrl, trackingStatus, trackingSyncedAt,
@@ -23,6 +24,7 @@ export function BigshipControl({
 }) {
   const router = useRouter();
   const [weight, setWeight] = useState("");
+  const [warehouseId, setWarehouseId] = useState(SHIPPING_WAREHOUSES[0]?.id ?? "");
   const [l, setL] = useState("");
   const [b, setB] = useState("");
   const [h, setH] = useState("");
@@ -36,6 +38,7 @@ export function BigshipControl({
     start(async () => {
       const res = await bookBigshipShipment(orderId, {
         weightKg,
+        warehouseId: warehouseId || undefined,
         length: l ? Number(l) : undefined,
         breadth: b ? Number(b) : undefined,
         height: h ? Number(h) : undefined,
@@ -104,6 +107,18 @@ export function BigshipControl({
       <p className="text-[11px] text-muted-foreground">
         Book this order with Big Ship — the AWB, tracking link and label are created automatically.
       </p>
+      <div>
+        <Label className="mb-1 block text-xs">Pickup branch</Label>
+        <select
+          value={warehouseId}
+          onChange={(e) => setWarehouseId(e.target.value)}
+          className="h-9 w-full rounded-md border border-input bg-background px-3 text-sm"
+        >
+          {SHIPPING_WAREHOUSES.map((w) => (
+            <option key={w.id} value={w.id}>{w.label}</option>
+          ))}
+        </select>
+      </div>
       <div>
         <Label className="mb-1 block text-xs">Parcel weight (kg) *</Label>
         <Input value={weight} onChange={(e) => setWeight(e.target.value)} inputMode="decimal" placeholder="e.g. 2" className="h-9" />

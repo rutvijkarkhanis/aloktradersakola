@@ -20,6 +20,16 @@ export const BUSINESS = {
   ],
 };
 
+/**
+ * Big Ship pickup warehouses (from the Big Ship dashboard warehouse list).
+ * The admin picks one per order when booking a shipment. The first entry is
+ * the default. Update the ids here if a warehouse changes in Big Ship.
+ */
+export const SHIPPING_WAREHOUSES: { id: string; label: string }[] = [
+  { id: "893", label: "Akola (HQ)" },
+  { id: "173115", label: "Pune" },
+];
+
 /** Full international WhatsApp number (countryCode + local), digits only. */
 export function waNumber(local: string): string {
   const digits = local.replace(/[^0-9]/g, "");

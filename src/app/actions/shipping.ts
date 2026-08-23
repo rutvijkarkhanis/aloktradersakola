@@ -40,6 +40,7 @@ type BookInput = {
   breadth?: number;
   height?: number;
   courierId?: string;
+  warehouseId?: string;
 };
 
 /**
@@ -104,6 +105,7 @@ export async function bookBigshipShipment(orderId: string, input: BookInput) {
         },
         box: { length: input.length, breadth: input.breadth, height: input.height, weightKg: input.weightKg },
         products,
+        warehouseId: input.warehouseId,
       },
       input.courierId,
     );
