@@ -219,6 +219,8 @@ export type Order = {
   tracking_number: string | null;
   tracking_url: string | null;
   bigship_order_id: string | null;
+  fship_order_id: string | null;
+  shipping_provider: string | null;
   shipping_label_url: string | null;
   tracking_status: string | null;
   tracking_synced_at: string | null;

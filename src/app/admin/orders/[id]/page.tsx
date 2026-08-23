@@ -6,8 +6,10 @@ import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { OrderStatusControl } from "@/components/admin/order-status-control";
 import { TrackingControl } from "@/components/admin/tracking-control";
-import { BigshipControl } from "@/components/admin/bigship-control";
+import { ShippingControl } from "@/components/admin/shipping-control";
 import { isBigshipConfigured } from "@/lib/bigship";
+import { isFshipConfigured, fshipWarehouses } from "@/lib/fship";
+import { SHIPPING_WAREHOUSES } from "@/lib/business";
 import { formatINR, formatDateTime } from "@/lib/utils";
 import { PAYMENT_STATUS_LABELS } from "@/lib/constants";
 
@@ -24,6 +26,8 @@ export default async function AdminOrderDetail({ params }: { params: { id: strin
   const o = order as any;
   const addr = o.shipping_address ?? {};
   const isCod = o.payment_type === "ADVANCE_50_COD_50";
+  const shippingProviders = { bigship: isBigshipConfigured(), fship: isFshipConfigured() };
+  const anyAggregator = shippingProviders.bigship || shippingProviders.fship;
 
   return (
     <div>
@@ -83,16 +87,18 @@ export default async function AdminOrderDetail({ params }: { params: { id: strin
           </div>
           <div className="rounded-lg border bg-card p-4">
             <h2 className="mb-3 flex items-center gap-2 text-sm font-semibold">Shipment Tracking</h2>
-            {isBigshipConfigured() ? (
-              <BigshipControl
+            {anyAggregator ? (
+              <ShippingControl
                 orderId={o.id}
-                bigshipOrderId={o.bigship_order_id}
                 awb={o.tracking_number}
                 courier={o.courier}
                 trackingUrl={o.tracking_url}
                 labelUrl={o.shipping_label_url}
                 trackingStatus={o.tracking_status}
                 trackingSyncedAt={o.tracking_synced_at}
+                providers={shippingProviders}
+                bigshipWarehouses={SHIPPING_WAREHOUSES}
+                fshipWarehouses={fshipWarehouses()}
               />
             ) : (
               <TrackingControl orderId={o.id} courier={o.courier} trackingNumber={o.tracking_number} trackingUrl={o.tracking_url} />

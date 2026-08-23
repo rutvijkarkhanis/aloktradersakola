@@ -2,7 +2,8 @@
 
 import { createClient } from "@/lib/supabase/server";
 import { createAdminClient } from "@/lib/supabase/admin";
-import { isBigshipConfigured, trackShipment } from "@/lib/bigship";
+import { isBigshipConfigured, trackShipment as trackBigship } from "@/lib/bigship";
+import { isFshipConfigured, trackShipment as trackFship } from "@/lib/fship";
 import { ORDER_STATUS_LABELS } from "@/lib/constants";
 
 export type TrackingResult =
@@ -27,25 +28,37 @@ type OrderRow = {
   tracking_number: string | null;
   tracking_url: string | null;
   bigship_order_id: string | null;
+  shipping_provider: string | null;
 };
 
-/** Shared: build the result for an order row, pulling live Big Ship status if booked. */
+/** Shared: build the result for an order row, pulling live aggregator status if booked. */
 async function buildResult(o: OrderRow): Promise<TrackingResult> {
   let liveData: { status: string; history: { status: string; message?: string; at?: string }[] } | null = null;
 
-  if (o.bigship_order_id && isBigshipConfigured()) {
-    try {
-      const t = await trackShipment(o.bigship_order_id);
+  // Route to whichever aggregator booked the order (Big Ship rows may predate
+  // shipping_provider, so fall back to the presence of bigship_order_id).
+  const provider =
+    o.shipping_provider === "fship" ? "fship" :
+    o.shipping_provider === "bigship" || o.bigship_order_id ? "bigship" : null;
+
+  try {
+    if (provider === "fship" && o.tracking_number && isFshipConfigured()) {
+      const t = await trackFship(o.tracking_number);
       liveData = { status: t.status, history: t.history };
+    } else if (provider === "bigship" && o.bigship_order_id && isBigshipConfigured()) {
+      const t = await trackBigship(o.bigship_order_id);
+      liveData = { status: t.status, history: t.history };
+    }
+    if (liveData) {
       // Best-effort: persist latest status so admin views stay fresh too.
       const admin = createAdminClient();
       await admin
         .from("orders")
-        .update({ tracking_status: t.status || "Unknown", tracking_synced_at: new Date().toISOString() })
+        .update({ tracking_status: liveData.status || "Unknown", tracking_synced_at: new Date().toISOString() })
         .eq("id", o.id);
-    } catch {
-      liveData = null; // live fetch failed — fall back to stored info
     }
+  } catch {
+    liveData = null; // live fetch failed — fall back to stored info
   }
 
   return {
@@ -59,7 +72,7 @@ async function buildResult(o: OrderRow): Promise<TrackingResult> {
   };
 }
 
-const SELECT = "id, order_number, order_status, courier, tracking_number, tracking_url, bigship_order_id";
+const SELECT = "id, order_number, order_status, courier, tracking_number, tracking_url, bigship_order_id, shipping_provider";
 
 /** Public: track by order number + the phone or email used on the order. */
 export async function trackByOrder(input: { orderNumber: string; contact: string }): Promise<TrackingResult> {
