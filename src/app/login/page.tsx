@@ -2,16 +2,16 @@
 
 import { Suspense, useState } from "react";
 import Link from "next/link";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { PasswordInput } from "@/components/ui/password-input";
 import { Label } from "@/components/ui/label";
 import { createClient } from "@/lib/supabase/client";
 import { toast } from "@/components/ui/sonner";
 
 function LoginForm() {
-  const router = useRouter();
   const params = useSearchParams();
   const redirect = params.get("redirect") || "/account";
   const [loading, setLoading] = useState(false);
@@ -25,11 +25,15 @@ function LoginForm() {
       email: String(fd.get("email")),
       password: String(fd.get("password")),
     });
-    setLoading(false);
-    if (error) return toast.error(error.message);
+    if (error) {
+      setLoading(false);
+      return toast.error(error.message);
+    }
     toast.success("Welcome back");
-    router.push(redirect);
-    router.refresh();
+    // Hard navigation so the freshly-set auth cookie is sent to the server on
+    // the next request — a client router.push can land before the session is
+    // committed, which left the very first login stranded on this page.
+    window.location.assign(redirect);
   }
 
   return (
@@ -47,7 +51,7 @@ function LoginForm() {
               <Label htmlFor="password">Password</Label>
               <Link href="/forgot-password" className="text-xs text-brand hover:underline">Forgot password?</Link>
             </div>
-            <Input id="password" name="password" type="password" required autoComplete="current-password" />
+            <PasswordInput id="password" name="password" required autoComplete="current-password" />
           </div>
           <Button type="submit" variant="brand" className="w-full" disabled={loading}>
             {loading && <Loader2 className="h-4 w-4 animate-spin" />} Log in

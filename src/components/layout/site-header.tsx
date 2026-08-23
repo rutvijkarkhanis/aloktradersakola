@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import {
-  Menu, Search, ShoppingCart, Heart, User, MessageCircle, ChevronDown,
+  Menu, Search, ShoppingCart, Heart, User, MessageCircle, ChevronDown, X,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -39,6 +39,7 @@ export function SiteHeader({
   const pathname = usePathname();
   const isAdminArea = pathname?.startsWith("/admin") ?? false;
   const [q, setQ] = useState("");
+  const [searchOpen, setSearchOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
   const [email, setEmail] = useState<string | null>(null);
   const [isAdmin, setIsAdmin] = useState(false);
@@ -70,6 +71,7 @@ export function SiteHeader({
 
   function onSearch(e: React.FormEvent) {
     e.preventDefault();
+    setSearchOpen(false);
     router.push(q.trim() ? `/shop?q=${encodeURIComponent(q.trim())}` : "/shop");
   }
 
@@ -219,8 +221,15 @@ export function SiteHeader({
         {/* Actions */}
         <div className="ml-auto flex items-center gap-0.5 md:ml-2">
           {!isAdminArea && (
-          <Button variant="ghost" size="icon" asChild className="md:hidden" aria-label="Search">
-            <Link href="/shop"><Search className="h-5 w-5" /></Link>
+          <Button
+            variant="ghost"
+            size="icon"
+            className="md:hidden"
+            aria-label={searchOpen ? "Close search" : "Search"}
+            aria-expanded={searchOpen}
+            onClick={() => setSearchOpen((o) => !o)}
+          >
+            {searchOpen ? <X className="h-5 w-5" /> : <Search className="h-5 w-5" />}
           </Button>
           )}
           <DropdownMenu>
@@ -279,6 +288,25 @@ export function SiteHeader({
           )}
         </div>
       </div>
+
+      {/* Search (mobile) — expands under the header when the search icon is tapped */}
+      {!isAdminArea && searchOpen && (
+        <div className="border-t bg-background md:hidden">
+          <form onSubmit={onSearch} className="container-wide py-2.5">
+            <div className="relative">
+              <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+              <Input
+                value={q}
+                onChange={(e) => setQ(e.target.value)}
+                placeholder="Search products, SKU…"
+                className="pl-9"
+                aria-label="Search"
+                autoFocus
+              />
+            </div>
+          </form>
+        </div>
+      )}
     </header>
   );
 }

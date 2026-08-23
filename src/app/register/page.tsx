@@ -2,16 +2,16 @@
 
 import { Suspense, useState } from "react";
 import Link from "next/link";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { Loader2, MailCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { PasswordInput } from "@/components/ui/password-input";
 import { Label } from "@/components/ui/label";
 import { createClient } from "@/lib/supabase/client";
 import { toast } from "@/components/ui/sonner";
 
 function RegisterForm() {
-  const router = useRouter();
   const params = useSearchParams();
   const redirect = params.get("redirect") || "/account";
   const [loading, setLoading] = useState(false);
@@ -30,13 +30,16 @@ function RegisterForm() {
         emailRedirectTo: `${window.location.origin}/auth/callback?redirect=${encodeURIComponent(redirect)}`,
       },
     });
-    setLoading(false);
-    if (error) return toast.error(error.message);
+    if (error) {
+      setLoading(false);
+      return toast.error(error.message);
+    }
     if (data.session) {
       toast.success("Account created");
-      router.push(redirect);
-      router.refresh();
+      // Hard navigation so the server sees the new auth cookie immediately.
+      window.location.assign(redirect);
     } else {
+      setLoading(false);
       setSent(true);
     }
   }
@@ -78,7 +81,7 @@ function RegisterForm() {
           </div>
           <div>
             <Label htmlFor="password">Password</Label>
-            <Input id="password" name="password" type="password" required minLength={6} autoComplete="new-password" />
+            <PasswordInput id="password" name="password" required minLength={6} autoComplete="new-password" />
           </div>
           <Button type="submit" variant="brand" className="w-full" disabled={loading}>
             {loading && <Loader2 className="h-4 w-4 animate-spin" />} Create account
