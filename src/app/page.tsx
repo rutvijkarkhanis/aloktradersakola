@@ -4,22 +4,27 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ProductCard } from "@/components/commerce/product-card";
-import { getFeaturedProducts, getBestSellers, getCategories, getEventCategories } from "@/lib/queries";
+import { getFeaturedProducts, getBestSellers, getCategories, getEventCategories, getProducts } from "@/lib/queries";
 import { getSiteSettings } from "@/lib/settings";
 import { whatsappHref, bulkEnquiryMessage } from "@/lib/whatsapp";
 
 export const revalidate = 60;
 
 export default async function HomePage() {
-  const [featured, bestSellers, categories, eventCategories, settings] = await Promise.all([
+  const [featured, bestSellers, categories, eventCategories, settings, catalogue] = await Promise.all([
     getFeaturedProducts(8).catch(() => []),
     getBestSellers(8).catch(() => []),
     getCategories().catch(() => []),
     getEventCategories().catch(() => []),
     getSiteSettings().catch(() => null),
+    getProducts({}).catch(() => ({ total: 0 })),
   ]);
   const parents = categories.filter((c) => !c.parent_id);
   const wa = whatsappHref(settings?.whatsapp_number, bulkEnquiryMessage());
+  // Real catalogue size, rounded down to a tidy figure — never an invented number.
+  const total = catalogue.total ?? 0;
+  const productCountLabel = total >= 10 ? `${Math.floor(total / 5) * 5}+ products` : total > 0 ? `${total} products` : "Ready-made & custom";
+  const heroTiles = featured.filter((p) => p.images[0]).slice(0, 4);
 
   return (
     <div>
@@ -47,7 +52,7 @@ export default async function HomePage() {
             </div>
             <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4">
               {[
-                { icon: PackageCheck, label: "37+ products" },
+                { icon: PackageCheck, label: productCountLabel },
                 { icon: IndianRupee, label: "Transparent INR pricing" },
                 { icon: Wrench, label: "Custom sizes" },
                 { icon: Truck, label: "Pan-India dispatch" },
@@ -59,7 +64,7 @@ export default async function HomePage() {
             </div>
           </div>
           <div className="grid grid-cols-2 gap-3">
-            {featured.slice(0, 4).map((p) => (
+            {heroTiles.map((p) => (
               <Link
                 key={p.id}
                 href={`/products/${p.slug}`}

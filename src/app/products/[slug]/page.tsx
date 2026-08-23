@@ -9,6 +9,7 @@ import { Price } from "@/components/commerce/price";
 import { ProductCard } from "@/components/commerce/product-card";
 import { ProductGallery } from "@/components/product/gallery";
 import { PurchasePanel } from "@/components/product/purchase-panel";
+import { MobileBuyBar } from "@/components/product/mobile-buy-bar";
 import { StarRating } from "@/components/product/star-rating";
 import { ReviewForm } from "@/components/product/review-form";
 import { getProductBySlug, getRelatedProducts, getApprovedReviews } from "@/lib/queries";
@@ -95,8 +96,9 @@ export default async function ProductPage({ params }: { params: { slug: string }
   };
 
   return (
-    <div className="container-wide py-8">
+    <div className="container-wide py-8 pb-24 lg:pb-8">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <MobileBuyBar product={product} />
 
       <nav className="mb-4 text-xs text-muted-foreground">
         <Link href="/" className="hover:text-foreground">Home</Link> <span className="mx-1">/</span>
@@ -119,7 +121,6 @@ export default async function ProductPage({ params }: { params: { slug: string }
           <div className="flex items-center gap-2">
             <Badge variant={status.variant}>{status.label}</Badge>
             {product.is_customizable && <Badge variant="outline">Custom sizes available</Badge>}
-            {product.needs_review && <Badge variant="secondary">Spec pending review</Badge>}
           </div>
           <h1 className="mt-3 text-2xl font-bold tracking-tight sm:text-3xl">{product.name}</h1>
           <p className="mt-1 text-sm text-muted-foreground">SKU: {product.sku}</p>

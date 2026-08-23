@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { PackageSearch } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { ProductCard } from "@/components/commerce/product-card";
 import { ShopFilters } from "@/components/shop/filters";
 import { MobileFilters } from "@/components/shop/mobile-filters";
@@ -71,9 +73,13 @@ export default async function ShopPage({ searchParams }: { searchParams: SP }) {
               <PackageSearch className="h-10 w-10 text-muted-foreground" />
               <h3 className="mt-4 font-semibold">No products match your filters</h3>
               <p className="mt-1 max-w-sm text-sm text-muted-foreground">
-                Try clearing filters or browsing all products. If the catalogue hasn&apos;t been
-                imported yet, run <code className="rounded bg-muted px-1">npm run db:import</code>.
+                Try removing a filter or clearing your search. Looking for something specific?
+                Message us on WhatsApp and we&apos;ll help you find it or fabricate it to order.
               </p>
+              <div className="mt-5 flex flex-wrap justify-center gap-3">
+                <Button asChild variant="brand"><Link href="/shop">Browse all products</Link></Button>
+                <Button asChild variant="outline"><Link href="/custom-fabrication">Request custom fabrication</Link></Button>
+              </div>
             </div>
           ) : (
             <>
