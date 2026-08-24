@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { Minus, Plus, Trash2, ShoppingBag, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
+import { DeliveryEstimator } from "@/components/commerce/delivery-estimator";
 import { useCart } from "@/lib/store/cart";
 import { formatINR } from "@/lib/utils";
 
@@ -89,9 +90,13 @@ export default function CartPage() {
               <span className="font-semibold">{formatINR(subtotal)}</span>
             </div>
             <p className="mt-2 text-xs text-muted-foreground">
-              Delivery, taxes and any coupon discount are calculated at checkout. Choose full payment or
+              Taxes and any coupon discount are calculated at checkout. Choose full payment or
               50% advance + 50% on delivery.
             </p>
+            <DeliveryEstimator
+              items={lines.map((l) => ({ productId: l.productId, quantity: l.quantity }))}
+              className="mt-3"
+            />
             <Button variant="brand" className="mt-4 w-full" size="lg" onClick={() => router.push("/checkout")}>
               Proceed to Checkout <ArrowRight className="h-4 w-4" />
             </Button>

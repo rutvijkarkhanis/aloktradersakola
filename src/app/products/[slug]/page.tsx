@@ -10,6 +10,7 @@ import { ProductCard } from "@/components/commerce/product-card";
 import { ProductGallery } from "@/components/product/gallery";
 import { PurchasePanel } from "@/components/product/purchase-panel";
 import { MobileBuyBar } from "@/components/product/mobile-buy-bar";
+import { DeliveryEstimator } from "@/components/commerce/delivery-estimator";
 import { StarRating } from "@/components/product/star-rating";
 import { ReviewForm } from "@/components/product/review-form";
 import { getProductBySlug, getRelatedProducts, getApprovedReviews } from "@/lib/queries";
@@ -147,6 +148,10 @@ export default async function ProductPage({ params }: { params: { slug: string }
 
           <Separator className="my-5" />
           <PurchasePanel product={product} whatsappNumber={settings?.whatsapp_number ?? null} />
+
+          {!product.is_quote_only && (
+            <DeliveryEstimator items={[{ productId: product.id, quantity: 1 }]} className="mt-4" />
+          )}
 
           <div className="mt-6 grid grid-cols-2 gap-3 rounded-lg border bg-secondary/40 p-4 text-sm sm:grid-cols-4">
             {[

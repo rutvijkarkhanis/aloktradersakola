@@ -226,3 +226,56 @@ export async function trackShipment(waybill: string): Promise<FshipTracking> {
 export async function cancelShipment(waybill: string, reason = "Cancelled by seller"): Promise<void> {
   await post("cancelorder", { waybill, reason });
 }
+
+/** Forward rate calculation only needs the signature key (not a warehouse). */
+export function isFshipRatingConfigured(): boolean {
+  return Boolean(SIGNATURE);
+}
+
+export type FshipRateQuote = {
+  courierName: string;
+  shippingCharge: number;
+  codCharge: number;
+  serviceMode?: string;
+};
+
+/**
+ * Approximate forward charges for a shipment (excludes extra charges & GST).
+ * Returns the available courier rates; empty array means the lane isn't
+ * serviceable. Used by the storefront delivery estimator.
+ */
+export async function rateCalculator(input: {
+  sourcePincode: string;
+  destPincode: string;
+  paymentMode: "PREPAID" | "COD";
+  amount: number;
+  weightKg: number;
+  length?: number;
+  breadth?: number;
+  height?: number;
+}): Promise<FshipRateQuote[]> {
+  const vol = input.length && input.breadth && input.height
+    ? (input.length * input.breadth * input.height) / 5000
+    : undefined;
+  const data = await post<{ shipment_rates?: { courier_name?: string; shipping_charge?: number; cod_charge?: number; service_mode?: string }[] }>(
+    "ratecalculator",
+    {
+      source_Pincode: input.sourcePincode,
+      destination_Pincode: input.destPincode,
+      payment_Mode: input.paymentMode === "COD" ? "COD" : "P",
+      amount: input.amount,
+      express_Type: "surface",
+      shipment_Weight: input.weightKg,
+      shipment_Length: input.length ?? 10,
+      shipment_Width: input.breadth ?? 10,
+      shipment_Height: input.height ?? 10,
+      volumetric_Weight: vol,
+    },
+  );
+  return (data?.shipment_rates ?? []).map((r) => ({
+    courierName: r.courier_name || "Courier",
+    shippingCharge: Number(r.shipping_charge) || 0,
+    codCharge: Number(r.cod_charge) || 0,
+    serviceMode: r.service_mode,
+  }));
+}

@@ -30,6 +30,15 @@ export const SHIPPING_WAREHOUSES: { id: string; label: string }[] = [
   { id: "173115", label: "Pune" },
 ];
 
+/**
+ * Origin pincode used for the live delivery estimate on the storefront
+ * (parcels dispatch from Akola HQ by default). Override with SHIP_ORIGIN_PINCODE.
+ */
+export const SHIP_ORIGIN_PINCODE = process.env.SHIP_ORIGIN_PINCODE || "444001";
+
+/** Fallback parcel weight (kg) when a product has no shipping_weight set yet. */
+export const DEFAULT_SHIPPING_WEIGHT_KG = Number(process.env.DEFAULT_SHIPPING_WEIGHT_KG || "2");
+
 /** Full international WhatsApp number (countryCode + local), digits only. */
 export function waNumber(local: string): string {
   const digits = local.replace(/[^0-9]/g, "");

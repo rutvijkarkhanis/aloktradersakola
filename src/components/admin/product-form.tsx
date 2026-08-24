@@ -44,6 +44,10 @@ export function ProductForm({ categories, product }: { categories: Category[]; p
       colour: String(fd.get("colour") || ""),
       finish: String(fd.get("finish") || ""),
       weight: String(fd.get("weight") || ""),
+      shipping_weight: fd.get("shipping_weight") ? Number(fd.get("shipping_weight")) : null,
+      length_cm: fd.get("length_cm") ? Number(fd.get("length_cm")) : null,
+      breadth_cm: fd.get("breadth_cm") ? Number(fd.get("breadth_cm")) : null,
+      height_cm: fd.get("height_cm") ? Number(fd.get("height_cm")) : null,
       product_type: String(fd.get("product_type")) as any,
       is_customizable: fd.get("is_customizable") === "on",
       is_active: fd.get("is_active") === "on",
@@ -104,7 +108,21 @@ export function ProductForm({ categories, product }: { categories: Category[]; p
             <F label="Material"><Input name="material" defaultValue={product?.material ?? ""} /></F>
             <F label="Colour"><Input name="colour" defaultValue={product?.colour ?? ""} /></F>
             <F label="Finish"><Input name="finish" defaultValue={product?.finish ?? ""} /></F>
-            <F label="Weight"><Input name="weight" defaultValue={product?.weight ?? ""} /></F>
+            <F label="Weight (shown to customer, e.g. “2 kg”)"><Input name="weight" defaultValue={product?.weight ?? ""} /></F>
+          </div>
+        </Card>
+
+        <Card title="Shipping (for live delivery estimate)">
+          <p className="-mt-1 mb-1 text-xs text-muted-foreground">
+            Used to quote real courier rates by pincode. Enter the packed parcel weight and box size.
+            Leave blank and a default is used until you fill it in.
+          </p>
+          <div className="grid gap-4 sm:grid-cols-2">
+            <F label="Shipping weight (kg)"><Input name="shipping_weight" type="number" min={0} step="0.1" defaultValue={product?.shipping_weight ?? ""} /></F>
+            <div className="hidden sm:block" />
+            <F label="Length (cm)"><Input name="length_cm" type="number" min={0} step="1" defaultValue={product?.length_cm ?? ""} /></F>
+            <F label="Breadth (cm)"><Input name="breadth_cm" type="number" min={0} step="1" defaultValue={product?.breadth_cm ?? ""} /></F>
+            <F label="Height (cm)"><Input name="height_cm" type="number" min={0} step="1" defaultValue={product?.height_cm ?? ""} /></F>
           </div>
         </Card>
 

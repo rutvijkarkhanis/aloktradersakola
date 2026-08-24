@@ -70,6 +70,10 @@ export type Product = {
   material: string | null;
   dimensions: string | null;
   weight: string | null;
+  shipping_weight: number | null;
+  length_cm: number | null;
+  breadth_cm: number | null;
+  height_cm: number | null;
   colour: string | null;
   finish: string | null;
   product_type: "READY_MADE" | "CUSTOM" | "READY_MADE_AND_CUSTOM" | "QUOTE_ONLY";
